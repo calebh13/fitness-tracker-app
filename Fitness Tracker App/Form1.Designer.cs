@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            tabPage3 = new TabPage();
             tabPage2 = new TabPage();
             tabControl1.SuspendLayout();
             SuspendLayout();
@@ -38,39 +39,54 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(2, 2, 2, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(800, 450);
+            tabControl1.Size = new Size(615, 352);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            tabPage1.Location = new Point(8, 46);
-            tabPage1.Name = "CalenderTab";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(784, 396);
+            tabPage1.Location = new Point(4, 34);
+            tabPage1.Margin = new Padding(2, 2, 2, 2);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(2, 2, 2, 2);
+            tabPage1.Size = new Size(607, 314);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "CalenderTab";
+            tabPage1.Text = "Calendar";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 34);
+            tabPage3.Margin = new Padding(2, 2, 2, 2);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(2, 2, 2, 2);
+            tabPage3.Size = new Size(607, 314);
+            tabPage3.TabIndex = 1;
+            tabPage3.Text = "Leaderboard";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(8, 46);
-            tabPage2.Name = "LocalLeaderBoard";
+            tabPage2.Location = new Point(4, 34);
+            tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(384, 146);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "LocalLeaderBoard";
+            tabPage2.Size = new Size(607, 314);
+            tabPage2.TabIndex = 2;
+            tabPage2.Text = "Statistics";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(615, 352);
             Controls.Add(tabControl1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             tabControl1.ResumeLayout(false);
@@ -81,6 +97,7 @@
 
         private TabControl tabControl1;
         private TabPage tabPage1;
+        private TabPage tabPage3;
         private TabPage tabPage2;
     }
 }
