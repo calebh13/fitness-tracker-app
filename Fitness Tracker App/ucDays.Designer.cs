@@ -51,7 +51,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(23, 69);
+            checkBox2.Location = new Point(0, 107);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(134, 36);
             checkBox2.TabIndex = 2;
@@ -61,7 +61,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(51, 2);
+            label1.Dock = DockStyle.Top;
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(40, 32);
             label1.TabIndex = 0;

@@ -54,7 +54,7 @@ namespace Fitness_Tracker_App
 
             int dayRelation = 0;
 
-            if(_year < DateTime.Now.Year)
+            if (_year < DateTime.Now.Year)
             {
                 dayRelation = -1;
             }
@@ -74,7 +74,7 @@ namespace Fitness_Tracker_App
             int tempDayRelation = dayRelation;
             for (int i = 0; i < week; i++)
             {
-                if(tempDayRelation == 0)
+                if (tempDayRelation == 0)
                 {
                     tempDayRelation = -1;
                 }
@@ -148,6 +148,18 @@ namespace Fitness_Tracker_App
                 _year -= 1;
             }
             showDays(_month, _year);
+        }
+
+        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                ctrl.Width = (int) (flowLayoutPanel1.ClientSize.Width/7.5);
+                ctrl.Height = (int)(flowLayoutPanel1.ClientSize.Height / 7.5);
+
+            }
+            this.ResumeLayout();
         }
     }
 }
