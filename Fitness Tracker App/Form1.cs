@@ -103,6 +103,8 @@ namespace Fitness_Tracker_App
                 //}
                 flowLayoutPanel1.Controls.Add(uc);
             }
+            this.resize();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -150,16 +152,26 @@ namespace Fitness_Tracker_App
             showDays(_month, _year);
         }
 
-        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        private void resize()
         {
             this.SuspendLayout();
             foreach (Control ctrl in flowLayoutPanel1.Controls)
             {
-                ctrl.Width = (int) (flowLayoutPanel1.ClientSize.Width/7.5);
+                ctrl.Width = (int)(flowLayoutPanel1.ClientSize.Width / 7.5);
                 ctrl.Height = (int)(flowLayoutPanel1.ClientSize.Height / 7.5);
-
             }
             this.ResumeLayout();
+        }
+        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        {
+            this.resize();
+            
+        }
+        
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
