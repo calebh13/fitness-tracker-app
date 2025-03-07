@@ -5,6 +5,8 @@ namespace Fitness_Tracker_App
     public partial class Form1 : Form
     {
         public static int _year, _month;
+
+        public static int _dayWidth, _dayHeight;
         public Form1()
         {
             InitializeComponent();
@@ -45,6 +47,9 @@ namespace Fitness_Tracker_App
             flowLayoutPanel1.Controls.Clear();
             _year = year;
             _month = month;
+            _dayWidth = (int)(flowLayoutPanel1.Width / 7.3);
+            _dayHeight = (int)(flowLayoutPanel1.Height / 6.3);
+
 
             string monthName = new DateTimeFormatInfo().GetMonthName(month);
             label1.Text = monthName;//.ToUpper();
@@ -78,7 +83,7 @@ namespace Fitness_Tracker_App
                 {
                     tempDayRelation = -1;
                 }
-                ucDays uc = new ucDays("", tempDayRelation);
+                ucDays uc = new ucDays("", tempDayRelation, _dayWidth, _dayHeight);
                 flowLayoutPanel1.Controls.Add(uc);
             }
             tempDayRelation = dayRelation;
@@ -88,7 +93,7 @@ namespace Fitness_Tracker_App
                 {
                     tempDayRelation = i - DateTime.Now.Day;
                 }
-                ucDays uc = new ucDays(i + "", tempDayRelation);
+                ucDays uc = new ucDays(i + "", tempDayRelation, _dayWidth, _dayHeight);
                 //if (i < DateTime.Now.Day)
                 //{
                 //    uc.dateHasPassed();
@@ -103,7 +108,6 @@ namespace Fitness_Tracker_App
                 //}
                 flowLayoutPanel1.Controls.Add(uc);
             }
-            this.resize();
 
         }
 
@@ -115,19 +119,19 @@ namespace Fitness_Tracker_App
         private void button1_Click(object sender, EventArgs e)
         {
             var formPopup = new Form();
-            formPopup.Show(this);
+            formPopup.ShowDialog(this);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             var formPopup = new Form();
-            formPopup.Show(this);
+            formPopup.ShowDialog(this);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             var formPopup = new Form();
-            formPopup.Show(this);
+            formPopup.ShowDialog(this);
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -164,14 +168,39 @@ namespace Fitness_Tracker_App
         }
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)
         {
-            this.resize();
-            
+            //this.resize();
+            //this.flowLayoutPanel1.SuspendLayout();
+            //this.flowLayoutPanel1.Controls.Clear();
+            //this.flowLayoutPanel1.ResumeLayout();
+            this.showDays(DateTime.Now.Month, DateTime.Now.Year);
         }
-        
+
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+            //this.flowLayoutPanel1.Controls.Clear();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int numSelectedDays = 0;
+            foreach (ucDays ctrl in flowLayoutPanel1.Controls)
+            {
+                if(ctrl.isSelected())
+                {
+                    numSelectedDays += 1;
+                }
+            }
+            var formPopup = new Form();
+            int shade = (int) (255 / 42.0 * numSelectedDays);
+            formPopup.BackColor = Color.FromArgb(shade, shade, shade);
+            formPopup.ShowDialog(this);
         }
     }
 }

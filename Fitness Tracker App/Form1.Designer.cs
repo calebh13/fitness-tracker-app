@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            button4 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
             label3 = new Label();
@@ -66,6 +67,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(button4);
             tabPage1.Controls.Add(tableLayoutPanel1);
             tabPage1.Controls.Add(button3);
             tabPage1.Controls.Add(button2);
@@ -82,6 +84,17 @@
             tabPage1.Text = "Calendar";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button4.Location = new Point(878, 1057);
+            button4.Name = "button4";
+            button4.Size = new Size(150, 46);
+            button4.TabIndex = 14;
+            button4.Text = "ClickMe";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -248,6 +261,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1149, 913);
             flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.SizeChanged += flowLayoutPanel1_SizeChanged;
             flowLayoutPanel1.Resize += flowLayoutPanel1_Resize;
             // 
             // tabPage2
@@ -309,5 +323,6 @@
         private Button button3;
         private Button button2;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button button4;
     }
 }
