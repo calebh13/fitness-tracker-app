@@ -12,7 +12,7 @@ namespace Fitness_Tracker_App
 {
     public partial class ucDays : UserControl
     {
-        string _day, date, weekday;
+        string _day;
         Color outline;
         Color backing;
 

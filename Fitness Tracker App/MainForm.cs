@@ -2,10 +2,10 @@ using System.Globalization;
 
 namespace Fitness_Tracker_App
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public static int _year, _month;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -110,12 +110,14 @@ namespace Fitness_Tracker_App
             showDays(DateTime.Now.Month, DateTime.Now.Year);
         }
 
+        // Workout
         private void button1_Click(object sender, EventArgs e)
         {
-            var formPopup = new Form();
+            var formPopup = new WorkoutForm();
             formPopup.Show(this);
         }
 
+        // 
         private void button2_Click(object sender, EventArgs e)
         {
             var formPopup = new Form();
