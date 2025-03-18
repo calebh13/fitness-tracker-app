@@ -21,7 +21,7 @@ Here are links to the issues that we completed in this sprint:
  ## Incomplete Issues/User Stories
  Here are links to issues we worked on but did not complete in this sprint:
  
- * [Issue 4](https://github.com/calebh13/fitness-tracker-app/issues/4) <<We began work on this, but the group member that this was assigned to had a family emergency.>>
+ * [Issue 4](https://github.com/calebh13/fitness-tracker-app/issues/4) We began work on this, but the group member that this was assigned to had a family emergency.
 
 ## Code Files for Review
 Please review the following code files, which were actively developed during this sprint, for quality:
