@@ -12,8 +12,8 @@ namespace Fitness_Tracker_App
 
         public MainForm()
         {
+            this.selectedDays = new List<calendarDay>();
             InitializeComponent();
-            selectedDays = new List<calendarDay>();
         }
 
         

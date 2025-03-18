@@ -12,15 +12,15 @@ namespace Fitness_Tracker_App
 {
     public partial class calendarDay : UserControl
     {
-        private Form1 originalForm;
-        string _day, date, weekday;//current date
+        private MainForm originalForm;
+        string _day; //current date
         
         //default coloring
         Color outline;
         Color backing;
 
 
-        public calendarDay(Form1 parentForm, string day, int dateRelation, int width, int height)//sorry this is confusing, negatvie means day has passed, positive means future date, 0 means current day
+        public calendarDay(MainForm parentForm, string day, int dateRelation, int width, int height)//sorry this is confusing, negatvie means day has passed, positive means future date, 0 means current day
         {
             
             InitializeComponent();//default work
