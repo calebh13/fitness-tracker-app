@@ -1,6 +1,6 @@
 ﻿namespace Fitness_Tracker_App
 {
-    partial class ucDays
+    partial class calendarDay
     {
         /// <summary> 
         /// Required designer variable.
@@ -95,13 +95,13 @@
             label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
             // 
-            // ucDays
+            // calendarDay
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             Controls.Add(panel1);
-            Name = "ucDays";
+            Name = "calendarDay";
             Padding = new Padding(2);
             Size = new Size(200, 200);
             Load += ucDays_Load;

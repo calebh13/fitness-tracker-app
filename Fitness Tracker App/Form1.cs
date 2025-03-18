@@ -7,10 +7,16 @@ namespace Fitness_Tracker_App
         public static int _year, _month;
 
         public static int _dayWidth, _dayHeight;
+
+        public List<calendarDay> selectedDays;
+
         public Form1()
         {
             InitializeComponent();
+            selectedDays = new List<calendarDay>();
         }
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -44,20 +50,30 @@ namespace Fitness_Tracker_App
 
         private void showDays(int month, int year)//for calendar
         {
-            flowLayoutPanel1.Controls.Clear();
+            selectedDays.Clear();//clear previous selected days
+            flowLayoutPanel1.Controls.Clear();//clear previous month
+
+            //set display date
             _year = year;
             _month = month;
+
+            //dynamic sizing for days
             _dayWidth = (int)(flowLayoutPanel1.Width / 7.3);
             _dayHeight = (int)(flowLayoutPanel1.Height / 6.3);
 
-
+            //set label with month name
             string monthName = new DateTimeFormatInfo().GetMonthName(month);
             label1.Text = monthName;//.ToUpper();
-            DateTime startOfTheMonth = new DateTime(year, month, 1);
-            int day = DateTime.DaysInMonth(year, month);
+
+
+            DateTime startOfTheMonth = new DateTime(year, month, 1);//start of month is the first day in that month;
+            int day = DateTime.DaysInMonth(year, month);//total days in the month
+
+            //this is killing me, it's how we create the days before the first of the month
+            //it is taking the day of the month (wednseday) and converting it to an int, so that that that the correct number of days before it are made
             int week = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d"));
 
-            int dayRelation = 0;
+            int dayRelation = 0;//-1 for before, 0 for current, 1 for future
 
             if (_year < DateTime.Now.Year)
             {
@@ -76,24 +92,27 @@ namespace Fitness_Tracker_App
                 dayRelation = 1;
             }
 
-            int tempDayRelation = dayRelation;
-            for (int i = 0; i < week; i++)
+            int tempDayRelation = dayRelation;//need a temporary so we can change it while still being able to go back to dayRelation
+
+
+            for (int i = 0; i < week; i++)//buffer days before the first of the month
             {
                 if (tempDayRelation == 0)
                 {
                     tempDayRelation = -1;
                 }
-                ucDays uc = new ucDays("", tempDayRelation, _dayWidth, _dayHeight);
-                flowLayoutPanel1.Controls.Add(uc);
+                calendarDay blankDay = new calendarDay(this, "", tempDayRelation, _dayWidth, _dayHeight);
+                blankDay.hideButtons();
+                flowLayoutPanel1.Controls.Add(blankDay);
             }
             tempDayRelation = dayRelation;
-            for (int i = 1; i <= day; i++)
+            for (int i = 1; i <= day; i++)//normal days
             {
                 if (dayRelation == 0)
                 {
                     tempDayRelation = i - DateTime.Now.Day;
                 }
-                ucDays uc = new ucDays(i + "", tempDayRelation, _dayWidth, _dayHeight);
+                calendarDay Date = new calendarDay(this, i + "", tempDayRelation, _dayWidth, _dayHeight);
                 //if (i < DateTime.Now.Day)
                 //{
                 //    uc.dateHasPassed();
@@ -106,7 +125,7 @@ namespace Fitness_Tracker_App
                 //{
                 //    uc.futureDate();
                 //}
-                flowLayoutPanel1.Controls.Add(uc);
+                flowLayoutPanel1.Controls.Add(Date);
             }
 
         }
@@ -166,6 +185,7 @@ namespace Fitness_Tracker_App
             }
             this.ResumeLayout();
         }
+
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)
         {
             //this.resize();
@@ -190,7 +210,7 @@ namespace Fitness_Tracker_App
         private void button4_Click(object sender, EventArgs e)
         {
             int numSelectedDays = 0;
-            foreach (ucDays ctrl in flowLayoutPanel1.Controls)
+            foreach (calendarDay ctrl in flowLayoutPanel1.Controls)
             {
                 if(ctrl.isSelected())
                 {
@@ -201,6 +221,16 @@ namespace Fitness_Tracker_App
             int shade = (int) (255 / 42.0 * numSelectedDays);
             formPopup.BackColor = Color.FromArgb(shade, shade, shade);
             formPopup.ShowDialog(this);
+        }
+
+        private List<string> datesFromSelectedDays()//can be changed to return an array of dates/ a date struct
+        {
+            List<string> date = new List<string>();
+            foreach(calendarDay ctrl in this.selectedDays)
+            {
+
+            }
+            return date;
         }
     }
 }

@@ -88,7 +88,7 @@
             // button4
             // 
             button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button4.Location = new Point(878, 1057);
+            button4.Location = new Point(891, 1057);
             button4.Name = "button4";
             button4.Size = new Size(150, 46);
             button4.TabIndex = 14;
@@ -192,11 +192,11 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button3.Location = new Point(500, 1057);
+            button3.Location = new Point(478, 1057);
             button3.Name = "button3";
-            button3.Size = new Size(150, 46);
+            button3.Size = new Size(170, 46);
             button3.TabIndex = 12;
-            button3.Text = "Goal";
+            button3.Text = "Set Goal";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -205,9 +205,9 @@
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button2.Location = new Point(287, 1057);
             button2.Name = "button2";
-            button2.Size = new Size(150, 46);
+            button2.Size = new Size(170, 46);
             button2.TabIndex = 11;
-            button2.Text = "Nutrition";
+            button2.Text = "Add Nutrition";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -216,9 +216,9 @@
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button1.Location = new Point(86, 1057);
             button1.Name = "button1";
-            button1.Size = new Size(150, 46);
+            button1.Size = new Size(170, 46);
             button1.TabIndex = 10;
-            button1.Text = "Workout";
+            button1.Text = "Add Workout";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
