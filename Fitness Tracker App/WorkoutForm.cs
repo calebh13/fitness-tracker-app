@@ -19,7 +19,7 @@ namespace Fitness_Tracker_App
             {
                 AutoScroll = true,
                 Dock = DockStyle.Top,
-                Size = new Size(this.ClientSize.Width, 400),
+                Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45),
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false
             };
