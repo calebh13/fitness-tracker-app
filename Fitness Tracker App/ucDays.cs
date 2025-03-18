@@ -63,7 +63,7 @@ namespace Fitness_Tracker_App
 
 
             //dynamic button and day size
-            int buttonHeight = (height - 75) / 3;
+            int buttonHeight = (height - 20) / 4;
             Font dynamic = new Font("Segoe UI", buttonHeight / 4);
             this.label1.Font = dynamic;
             this.button1.Height = buttonHeight;
