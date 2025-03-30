@@ -95,7 +95,7 @@
             // 
             // repsBox
             // 
-            repsBox.Location = new Point(75, 125);
+            repsBox.Location = new Point(86, 125);
             repsBox.Name = "repsBox";
             repsBox.Size = new Size(50, 31);
             repsBox.TabIndex = 7;

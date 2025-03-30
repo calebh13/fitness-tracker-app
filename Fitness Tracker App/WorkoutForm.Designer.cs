@@ -7,36 +7,52 @@
 
         private void InitializeComponent()
         {
-            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.addButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-
+            flowPanel = new FlowLayoutPanel();
+            addButton = new Button();
+            SuspendLayout();
             // 
             // flowPanel
             // 
-            this.flowPanel.AutoScroll = true;
-            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowPanel.Size = new System.Drawing.Size(580, 300);
-            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanel.WrapContents = false;
-
+            /*
+            flowPanel.AutoScroll = true;
+            flowPanel.Dock = DockStyle.Top;
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.Location = new Point(0, 0);
+            flowPanel.Name = "flowPanel";
+            flowPanel.Size = new Size(600, 300);
+            flowPanel.TabIndex = 0;
+            flowPanel.WrapContents = false;
+            */
+            flowPanel.AutoScroll = true;
+            flowPanel.Dock = DockStyle.Top;
+            flowPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45);
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.WrapContents = false;
             // 
             // addButton
             // 
-            this.addButton.Text = "Add Exercise";
-            this.addButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.addButton.Height = 40;
-            this.addButton.Click += new System.EventHandler(this.AddNewWorkoutEntry);
-
+            /*
+            addButton.Dock = DockStyle.Bottom;
+            addButton.Location = new Point(0, 360);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(600, 40);
+            addButton.TabIndex = 1;
+            addButton.Text = "Add Exercise";
+            addButton.Click += AddNewWorkoutEntry;
+            */
+            addButton.Text = "Add Exercise";
+            addButton.Dock = DockStyle.Bottom;
+            addButton.Height = 40;
+            addButton.Click += AddNewWorkoutEntry;
             // 
             // WorkoutForm
-            // 
-            this.ClientSize = new System.Drawing.Size(600, 400);
-            this.Controls.Add(this.flowPanel);
-            this.Controls.Add(this.addButton);
-            this.Text = "Workout Tracker";
-
-            this.ResumeLayout(false);
+            //
+            Controls.Add(flowPanel);
+            Controls.Add(addButton);
+            Name = "WorkoutForm";
+            Text = "Workout Tracker";
+            FormClosing += WorkoutForm_FormClosing;
+            ResumeLayout(false);
         }
     }
 }

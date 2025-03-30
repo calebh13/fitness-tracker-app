@@ -116,8 +116,6 @@
         private System.Windows.Forms.TextBox caloriesBox;
         private System.Windows.Forms.Label macrosLabel;
         private System.Windows.Forms.TextBox macrosBox;
-        private System.Windows.Forms.Label xLabel;
-        private System.Windows.Forms.TextBox repsBox;
         private System.Windows.Forms.Button removeButton;
     }
 }

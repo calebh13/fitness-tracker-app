@@ -15,23 +15,23 @@
             // flowPanel
             // 
             this.flowPanel.AutoScroll = true;
-            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowPanel.Size = new System.Drawing.Size(580, 300);
-            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanel.Dock = DockStyle.Top;
+            this.flowPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45);
+            this.flowPanel.FlowDirection = FlowDirection.TopDown;
             this.flowPanel.WrapContents = false;
 
             // 
             // addButton
             // 
             this.addButton.Text = "Add Meal";
-            this.addButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.addButton.Dock = DockStyle.Bottom;
             this.addButton.Height = 40;
             this.addButton.Click += new System.EventHandler(this.AddNewNutritionEntry);
 
             // 
             // WorkoutForm
             // 
-            this.ClientSize = new System.Drawing.Size(600, 400);
+            //this.ClientSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.flowPanel);
             this.Controls.Add(this.addButton);
             this.Text = "Nutrition Tracker";
