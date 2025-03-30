@@ -16,25 +16,7 @@ namespace Fitness_Tracker_App
         {
             this.Text = "Nutrition Tracker";
             this.Size = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
-
-            flowPanel = new FlowLayoutPanel
-            {
-                AutoScroll = true,
-                Dock = DockStyle.Top,
-                Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45),
-                FlowDirection = FlowDirection.TopDown,
-                WrapContents = false
-            };
-            this.Controls.Add(flowPanel);
-
-            addButton = new Button
-            {
-                Text = "Add Meal",
-                Dock = DockStyle.Bottom,
-                Height = 40
-            };
-            addButton.Click += AddNewNutritionEntry;
-            this.Controls.Add(addButton);
+            this.InitializeComponent();
             this.AddNewNutritionEntry(null, EventArgs.Empty);
         }
 
