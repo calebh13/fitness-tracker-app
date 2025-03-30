@@ -5,6 +5,7 @@ using System.Windows.Forms;
 namespace Fitness_Tracker_App
 {
     using Fitness_App_Engine;
+    using Microsoft.VisualBasic;
     using System;
     using System.Drawing;
     using System.Windows.Forms;
@@ -12,8 +13,12 @@ namespace Fitness_Tracker_App
     public partial class WorkoutForm : Form
     {
         private List<Exercise> exercises;
+        private readonly DateTime date;
 
-        public WorkoutForm()
+        public List<Exercise> Exercises { get => this.exercises; }
+        public DateTime Date { get => this.date.Date; }
+
+        public WorkoutForm(DateTime date)
         {
             ClientSize = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
 
@@ -21,6 +26,7 @@ namespace Fitness_Tracker_App
 
             this.AddNewWorkoutEntry(null, EventArgs.Empty);
             this.exercises = new List<Exercise>();
+            this.date = date;
         }
 
         private void AddNewWorkoutEntry(object? sender, EventArgs e)
@@ -51,16 +57,14 @@ namespace Fitness_Tracker_App
             }
         }
 
-        // Example save method
         private void SaveData()
         {
-            // Serialize your data into an object
             foreach (var component in flowPanel.Controls)
             {
                 if (component is WorkoutEntry entry)
                 {
                     string? name = entry.Controls["nameBox"]!.Text;
-                    int weight, sets, reps;
+                    int weight = 0, sets = 0, reps = 0;
                     if (!int.TryParse(entry.Controls["weightBox"]!.Text, out weight)) continue;
                     if (!int.TryParse(entry.Controls["setsBox"]!.Text, out sets)) continue;
                     if (!int.TryParse(entry.Controls["repsBox"]!.Text, out reps)) continue;

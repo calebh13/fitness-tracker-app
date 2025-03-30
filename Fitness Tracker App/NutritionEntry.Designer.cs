@@ -29,8 +29,8 @@
             nameBox = new TextBox();
             caloriesLabel = new Label();
             caloriesBox = new TextBox();
-            macrosLabel = new Label();
-            macrosBox = new TextBox();
+            proteinLabel = new Label();
+            proteinBox = new TextBox();
             removeButton = new Button();
             SuspendLayout();
             // 
@@ -66,21 +66,21 @@
             caloriesBox.Size = new Size(100, 31);
             caloriesBox.TabIndex = 3;
             // 
-            // macrosLabel
+            // proteinLabel
             // 
-            macrosLabel.AutoSize = true;
-            macrosLabel.Location = new Point(5, 105);
-            macrosLabel.Name = "macrosLabel";
-            macrosLabel.Size = new Size(74, 25);
-            macrosLabel.TabIndex = 4;
-            macrosLabel.Text = "Macros:";
+            proteinLabel.AutoSize = true;
+            proteinLabel.Location = new Point(5, 105);
+            proteinLabel.Name = "macrosLabel";
+            proteinLabel.Size = new Size(74, 25);
+            proteinLabel.TabIndex = 4;
+            proteinLabel.Text = "Macros:";
             // 
             // macrosBox
             // 
-            macrosBox.Location = new Point(5, 125);
-            macrosBox.Name = "macrosBox";
-            macrosBox.Size = new Size(50, 31);
-            macrosBox.TabIndex = 5;
+            proteinBox.Location = new Point(5, 125);
+            proteinBox.Name = "macrosBox";
+            proteinBox.Size = new Size(50, 31);
+            proteinBox.TabIndex = 5;
             // 
             // removeButton
             // 
@@ -99,8 +99,8 @@
             Controls.Add(nameBox);
             Controls.Add(caloriesLabel);
             Controls.Add(caloriesBox);
-            Controls.Add(macrosLabel);
-            Controls.Add(macrosBox);
+            Controls.Add(proteinLabel);
+            Controls.Add(proteinBox);
             Controls.Add(removeButton);
             Name = "NutritionEntry";
             Size = new Size(569, 363);
@@ -114,8 +114,8 @@
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Label caloriesLabel;
         private System.Windows.Forms.TextBox caloriesBox;
-        private System.Windows.Forms.Label macrosLabel;
-        private System.Windows.Forms.TextBox macrosBox;
+        private System.Windows.Forms.Label proteinLabel;
+        private System.Windows.Forms.TextBox proteinBox;
         private System.Windows.Forms.Button removeButton;
     }
 }

@@ -26,19 +26,19 @@ namespace Fitness_Tracker_App
             int yOffset = 5;
 
             Label nameLabel = new Label { Text = "Name:", Location = new Point(5, yOffset), AutoSize = true };
-            TextBox nameBox = new TextBox { Location = new Point(5, yOffset + 20), Width = 250 };
+            TextBox nameBox = new TextBox { Name = "nameBox", Location = new Point(5, yOffset + 20), Width = 250 };
             yOffset += 50;
 
             // "Weight:" Label + Input Box
             Label weightLabel = new Label { Text = "Weight:", Location = new Point(5, yOffset), AutoSize = true };
-            TextBox weightBox = new TextBox { Location = new Point(5, yOffset + 20), Width = 100 };
+            TextBox weightBox = new TextBox { Name = "weightBox", Location = new Point(5, yOffset + 20), Width = 100 };
             yOffset += 50;
 
             // "Sets x Reps:" Label + Two Input Boxes
             Label setsRepsLabel = new Label { Text = "Sets x Reps:", Location = new Point(5, yOffset), AutoSize = true };
-            TextBox setsBox = new TextBox { Location = new Point(5, yOffset + 20), Width = 50 };
+            TextBox setsBox = new TextBox { Name = "setsBox", Location = new Point(5, yOffset + 20), Width = 50 };
             Label xLabel = new Label { Text = "x", Location = new Point(60, yOffset + 25), AutoSize = true };
-            TextBox repsBox = new TextBox { Location = new Point(80, yOffset + 20), Width = 50 };
+            TextBox repsBox = new TextBox { Name = "repsBox", Location = new Point(80, yOffset + 20), Width = 50 };
             yOffset += 50;
 
             Button removeButton = new Button
