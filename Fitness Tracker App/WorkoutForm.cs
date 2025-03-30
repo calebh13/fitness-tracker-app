@@ -12,7 +12,6 @@ namespace Fitness_Tracker_App
     public partial class WorkoutForm : Form
     {
         private List<Exercise> exercises;
-        int numExercises;
 
         public WorkoutForm()
         {
@@ -29,14 +28,12 @@ namespace Fitness_Tracker_App
             WorkoutEntry entry = new WorkoutEntry();
             entry.RemoveClicked += (s, ev) => RemoveWorkoutEntry(entry);
             flowPanel.Controls.Add(entry);
-            this.numExercises++;
         }
 
         private void RemoveWorkoutEntry(WorkoutEntry entry)
         {
             flowPanel.Controls.Remove(entry);
             entry.Dispose();
-            this.numExercises--;
         }
 
         private void WorkoutForm_FormClosing(object sender, FormClosingEventArgs e)
