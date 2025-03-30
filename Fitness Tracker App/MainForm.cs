@@ -151,7 +151,7 @@ namespace Fitness_Tracker_App
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var formPopup = new Form();
+            var formPopup = new GoalForm();
             formPopup.ShowDialog(this);
         }
 
