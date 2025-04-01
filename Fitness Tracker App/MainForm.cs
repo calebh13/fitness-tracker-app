@@ -1,3 +1,4 @@
+using Fitness_App_Engine;
 using System.Globalization;
 
 namespace Fitness_Tracker_App
@@ -22,7 +23,7 @@ namespace Fitness_Tracker_App
         {
 
         }
-
+         
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -138,20 +139,45 @@ namespace Fitness_Tracker_App
         // Workout
         private void button1_Click(object sender, EventArgs e)
         {
-            var formPopup = new WorkoutForm();
+            var formPopup = new WorkoutForm(DateTime.Now);
+            formPopup.FormClosed += this.WorkoutFormClosed;
             formPopup.ShowDialog(this);
+
+        }
+
+        private void WorkoutFormClosed(object? sender, EventArgs e)
+        {
+            if(sender is WorkoutForm workoutForm)
+            {
+                foreach(Exercise exercise in workoutForm.Exercises)
+                {
+                    // Add to calendar's list of exercises for a given day
+                }
+            }
         }
 
         // 
         private void button2_Click(object sender, EventArgs e)
         {
-            var formPopup = new NutritionForm();
+            var formPopup = new NutritionForm(DateTime.Now);
+            formPopup.FormClosed += this.NutritionFormClosed;
             formPopup.ShowDialog(this);
+        }
+
+        private void NutritionFormClosed(object? sender, EventArgs e)
+        {
+            if (sender is WorkoutForm workoutForm)
+            {
+                foreach (Exercise exercise in workoutForm.Exercises)
+                {
+                    // Add to calendar's list of stuff
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var formPopup = new Form();
+            var formPopup = new GoalForm();
             formPopup.ShowDialog(this);
         }
 

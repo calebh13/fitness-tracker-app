@@ -95,7 +95,7 @@
             // 
             // repsBox
             // 
-            repsBox.Location = new Point(75, 125);
+            repsBox.Location = new Point(86, 125);
             repsBox.Name = "repsBox";
             repsBox.Size = new Size(50, 31);
             repsBox.TabIndex = 7;
@@ -130,14 +130,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.Label weightLabel;
-        private System.Windows.Forms.TextBox weightBox;
-        private System.Windows.Forms.Label setsRepsLabel;
-        private System.Windows.Forms.TextBox setsBox;
-        private System.Windows.Forms.Label xLabel;
-        private System.Windows.Forms.TextBox repsBox;
-        private System.Windows.Forms.Button removeButton;
+        private Label nameLabel;
+        private TextBox nameBox;
+        private Label weightLabel;
+        private TextBox weightBox;
+        private Label setsRepsLabel;
+        private TextBox setsBox;
+        private Label xLabel;
+        private TextBox repsBox;
+        private Button removeButton;
     }
 }

@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace Fitness_App_Engine
 {
-    class Meal
+    public class Meal
     {
-        private string food;
-        private int calories;
-        private int protein;
+        public string Name { get; }
+        public int Calories { get; }
+        public int Protein { get; }
 
-        public string Food {  get { return food; } set { food = value; } }
-        public int Protein { get { return protein; } set { protein = value; } }
-        private int Calories { get { return calories; } set { calories = value; } }
-        
-        public Meal(string food, int calories, int protein)
+        public Meal(string name, int calories, int protein)
         {
-            this.food = food;
-            this.calories = calories;
-            this.protein = protein;
+            this.Name = name;
+            this.Calories = calories;
+            this.Protein = protein;
         }
+
     }
 }
