@@ -19,19 +19,30 @@ namespace Fitness_Tracker_App
         public DateTime Date { get => this.date.Date; }
         public List<Meal> Meals { get => this.meals; }
 
-        public NutritionForm(DateTime date)
+        public NutritionForm(DateTime date, List<Meal> meals)
         {
+            this.meals = meals;
             this.Text = "Nutrition Tracker";
             this.ClientSize = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
             this.date = date;
-            this.meals = new List<Meal>();
             this.InitializeComponent();
+            foreach (Meal meal in meals)
+            {
+                this.AddNewNutritionEntry(null, EventArgs.Empty, meal);
+            }
             this.AddNewNutritionEntry(null, EventArgs.Empty);
         }
 
         private void AddNewNutritionEntry(object? sender, EventArgs e)
         {
-            NutritionEntry entry = new NutritionEntry();
+            NutritionEntry entry = new NutritionEntry() { Name = "NutritionEntry" };
+            entry.RemoveClicked += (s, ev) => RemoveNutritionEntry(entry);
+            flowPanel.Controls.Add(entry);
+        }
+
+        private void AddNewNutritionEntry(object? sender, EventArgs e, Meal meal)
+        {
+            NutritionEntry entry = new NutritionEntry(meal);
             entry.RemoveClicked += (s, ev) => RemoveNutritionEntry(entry);
             flowPanel.Controls.Add(entry);
         }

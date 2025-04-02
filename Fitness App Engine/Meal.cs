@@ -1,3 +1,4 @@
+
 ﻿namespace Fitness_App_Engine
 {
     public class Meal
@@ -12,6 +13,7 @@
             this.Calories = calories;
             this.Protein = protein;
         }
+
 
     }
 }
