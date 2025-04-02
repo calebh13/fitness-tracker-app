@@ -18,20 +18,31 @@ namespace Fitness_Tracker_App
         public List<Exercise> Exercises { get => this.exercises; }
         public DateTime Date { get => this.date.Date; }
 
-        public WorkoutForm(DateTime date)
+        public WorkoutForm(DateTime date, List<Exercise> exercises)
         {
             ClientSize = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
 
             InitializeComponent();
+            this.exercises = exercises;
+            foreach (Exercise exercise in exercises)
+            {
+                AddNewWorkoutEntry(null, EventArgs.Empty, exercise);
+            }
 
             this.AddNewWorkoutEntry(null, EventArgs.Empty);
-            this.exercises = new List<Exercise>();
             this.date = date;
         }
 
         private void AddNewWorkoutEntry(object? sender, EventArgs e)
         {
             WorkoutEntry entry = new WorkoutEntry();
+            entry.RemoveClicked += (s, ev) => RemoveWorkoutEntry(entry);
+            flowPanel.Controls.Add(entry);
+        }
+
+        private void AddNewWorkoutEntry(object? sender, EventArgs e, Exercise exercise)
+        {
+            WorkoutEntry entry = new WorkoutEntry(exercise);
             entry.RemoveClicked += (s, ev) => RemoveWorkoutEntry(entry);
             flowPanel.Controls.Add(entry);
         }
