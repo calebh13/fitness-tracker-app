@@ -25,7 +25,6 @@ namespace Fitness_Tracker_App
             this.Text = "Nutrition Tracker";
             this.ClientSize = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
             this.date = date;
-            this.meals = meals;
             this.InitializeComponent();
             foreach (Meal meal in meals)
             {
