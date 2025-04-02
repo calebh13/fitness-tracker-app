@@ -6,11 +6,36 @@ using System.Threading.Tasks;
 
 namespace Fitness_App_Engine
 {
-    class daysBackend
+    public class daysBackend
     {
-        List<exercies> exercies;
-        List<nutritions> nutrition;
+        List<Exercise> exercies;
+        List<Meal> nutrition;
 
+        public daysBackend(List<Exercise> exercies, List<Meal> nutrition)
+        {
+            this.exercies = exercies;
+            this.nutrition = nutrition;
+        }
 
+        public daysBackend(List<Exercise> exercies)
+        {
+            this.exercies = exercies;
+            this.nutrition = new List<Meal>();
+        }
+
+        public daysBackend(List<Meal> nutrition)
+        {
+            this.exercies = new List<Exercise>();
+            this.nutrition = nutrition;
+        }
+
+        public void addExercises(List<Exercise> newExercises)
+        {
+            this.exercies.AddRange(newExercises);
+        }
+        public void addNutrition(List<Meal> newMeals)
+        {
+            this.nutrition.AddRange(newMeals);
+        }
     }
 }

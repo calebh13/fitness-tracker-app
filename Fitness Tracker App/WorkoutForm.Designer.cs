@@ -13,40 +13,29 @@
             // 
             // flowPanel
             // 
-            /*
             flowPanel.AutoScroll = true;
             flowPanel.Dock = DockStyle.Top;
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.Location = new Point(0, 0);
             flowPanel.Name = "flowPanel";
-            flowPanel.Size = new Size(600, 300);
+            flowPanel.Size = new Size(274, 229);
             flowPanel.TabIndex = 0;
             flowPanel.WrapContents = false;
-            */
-            flowPanel.AutoScroll = true;
-            flowPanel.Dock = DockStyle.Top;
-            flowPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45);
-            flowPanel.FlowDirection = FlowDirection.TopDown;
-            flowPanel.WrapContents = false;
+            flowPanel.Paint += flowPanel_Paint;
             // 
             // addButton
             // 
-            /*
             addButton.Dock = DockStyle.Bottom;
-            addButton.Location = new Point(0, 360);
+            addButton.Location = new Point(0, 189);
             addButton.Name = "addButton";
-            addButton.Size = new Size(600, 40);
+            addButton.Size = new Size(274, 40);
             addButton.TabIndex = 1;
             addButton.Text = "Add Exercise";
             addButton.Click += AddNewWorkoutEntry;
-            */
-            addButton.Text = "Add Exercise";
-            addButton.Dock = DockStyle.Bottom;
-            addButton.Height = 40;
-            addButton.Click += AddNewWorkoutEntry;
             // 
             // WorkoutForm
-            //
+            // 
+            ClientSize = new Size(274, 229);
             Controls.Add(flowPanel);
             Controls.Add(addButton);
             Name = "WorkoutForm";

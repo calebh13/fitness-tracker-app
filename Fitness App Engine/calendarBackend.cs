@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Fitness_App_Engine
 {
-    class calendarBackend
+    public class calendarBackend
     {
         Dictionary<DateTime, daysBackend> days;
         //List<goals> goals
-        calendarBackend()
+        public calendarBackend()
         {
             days = new Dictionary<DateTime, daysBackend>();
         }
@@ -26,7 +26,18 @@ namespace Fitness_App_Engine
                 return false;
             }
         }
-
+        public void addWorkouts(DateTime date, List<Exercise> newExercises)
+        {
+            if(dateIsInDictionary(date))
+            {
+                days[date].addExercises(newExercises);
+            }
+            else
+            {
+                days.Add(date, new daysBackend(newExercises));
+            }
+        }
+        /*
         private void addDay(DateTime date, List<nutrition> newNutrition)
         {
             daysBackend newDay = new daysBackend();
@@ -39,7 +50,7 @@ namespace Fitness_App_Engine
             newDay.exercises = newExercises;
             days.Add(date, newDay);
         }
-
-        private void updateDay 
+        */
+        //private void updateDay 
     }
 }

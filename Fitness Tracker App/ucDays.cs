@@ -14,7 +14,7 @@ namespace Fitness_Tracker_App
     {
         private MainForm originalForm;
         string _day; //current date
-        
+
         //default coloring
         Color outline;
         Color backing;
@@ -22,7 +22,7 @@ namespace Fitness_Tracker_App
 
         public calendarDay(MainForm parentForm, string day, int dateRelation, int width, int height)//sorry this is confusing, negatvie means day has passed, positive means future date, 0 means current day
         {
-            
+
             InitializeComponent();//default work
             originalForm = parentForm;
             _day = day;//the day it is -_o_-
@@ -31,7 +31,7 @@ namespace Fitness_Tracker_App
             this.Width = width;
             this.Height = height;
 
-            
+
 
 
 
@@ -139,7 +139,7 @@ namespace Fitness_Tracker_App
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            if(this.label1.Text != "")
+            if (this.label1.Text != "")
             {
                 if (checkBox2.Checked == false)
                 {
@@ -149,7 +149,7 @@ namespace Fitness_Tracker_App
                 {
                     deselectDay();
                 }
-            } 
+            }
         }
         public bool isSelected()
         {
@@ -159,6 +159,21 @@ namespace Fitness_Tracker_App
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public int getDayNumber()
+        {
+            return Convert.ToInt32(label1.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int month = this.originalForm.getMonth();
+            int year = this.originalForm.getYear();
+            int day = this.getDayNumber();
+
+            var formPopup = new WorkoutForm(new DateTime(month,year,day));
+            formPopup.ShowDialog(this);
         }
     }
 }

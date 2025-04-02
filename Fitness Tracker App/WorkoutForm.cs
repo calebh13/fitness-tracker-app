@@ -77,5 +77,10 @@ namespace Fitness_Tracker_App
                 }
             }
         }
+
+        private void flowPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

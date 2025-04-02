@@ -1,5 +1,6 @@
 using Fitness_App_Engine;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace Fitness_Tracker_App
 {
@@ -11,13 +12,26 @@ namespace Fitness_Tracker_App
 
         public List<calendarDay> selectedDays;
 
+        public calendarBackend backend;
+
         public MainForm()
         {
             this.selectedDays = new List<calendarDay>();
+            backend = new calendarBackend();
             InitializeComponent();
+
         }
 
-        
+        public int getMonth()
+        {
+            return _month;
+        }
+
+        public int getYear()
+        {
+            return _year;
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -149,9 +163,17 @@ namespace Fitness_Tracker_App
         {
             if(sender is WorkoutForm workoutForm)
             {
-                foreach(Exercise exercise in workoutForm.Exercises)
+                List<DateTime> days = this.datesFromSelectedDays();
+                if (days.Any())
                 {
-                    // Add to calendar's list of exercises for a given day
+                    foreach (DateTime day in days)
+                    {
+                        backend.addWorkouts(day, workoutForm.Exercises);
+                    }
+                }
+                else
+                {
+                    backend.addWorkouts(DateTime.Now, workoutForm.Exercises);
                 }
             }
         }
@@ -251,14 +273,15 @@ namespace Fitness_Tracker_App
             formPopup.ShowDialog(this);
         }
 
-        private List<string> datesFromSelectedDays()//can be changed to return an array of dates/ a date struct
+        private List<DateTime> datesFromSelectedDays()//can be changed to return an array of dates/ a date struct
         {
-            List<string> date = new List<string>();
+            List<DateTime> listOfSelectedDates = new List<DateTime>();
             foreach(calendarDay ctrl in this.selectedDays)
             {
 
+                listOfSelectedDates.Add(new DateTime(_year, _month, ctrl.getDayNumber()));
             }
-            return date;
+            return listOfSelectedDates;
         }
     }
 }
