@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Fitness_App_Engine
+﻿namespace Fitness_App_Engine
 {
     public class Meal
     {
@@ -18,6 +13,7 @@ namespace Fitness_App_Engine
             this.Calories = calories;
             this.Protein = protein;
         }
+
 
     }
 }

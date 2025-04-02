@@ -139,7 +139,12 @@ namespace Fitness_Tracker_App
         // Workout
         private void button1_Click(object sender, EventArgs e)
         {
-            var formPopup = new WorkoutForm(DateTime.Now);
+            List<Exercise> exercises = new List<Exercise>(); // here we will get the lists of exercises for that day
+            Exercise exercise = new Exercise("bench", 45, 6, 4);
+            exercises.Add(exercise);
+            Exercise exercise2 = new Exercise("james sucks", 4500, 60, 400);
+            exercises.Add(exercise2);
+            var formPopup = new WorkoutForm(DateTime.Now, exercises);
             formPopup.FormClosed += this.WorkoutFormClosed;
             formPopup.ShowDialog(this);
 
@@ -156,10 +161,15 @@ namespace Fitness_Tracker_App
             }
         }
 
-        // 
+        // nutrintion form
         private void button2_Click(object sender, EventArgs e)
         {
-            var formPopup = new NutritionForm(DateTime.Now);
+            List<Meal> meals = new List<Meal>(); // here we will get the list of meals for that day
+            Meal meal = new Meal("egg", 13, 56);
+            Meal meal2 = new Meal("tost", 13, 56);
+            meals.Add(meal);
+            meals.Add(meal2);
+            var formPopup = new NutritionForm(DateTime.Now, meals);
             formPopup.FormClosed += this.NutritionFormClosed;
             formPopup.ShowDialog(this);
         }
