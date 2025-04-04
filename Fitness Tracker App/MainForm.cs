@@ -160,21 +160,29 @@ namespace Fitness_Tracker_App
 
         }
 
-        private void WorkoutFormClosed(object? sender, EventArgs e)
+        public void WorkoutFormClosed(object? sender, EventArgs e)
         {
             if(sender is WorkoutForm workoutForm)
             {
-                List<DateTime> days = this.datesFromSelectedDays();
-                if (days.Any())
+                List<DateTime> dayList = this.datesFromSelectedDays();
+                if (dayList.Any())//from selected days
                 {
-                    foreach (DateTime day in days)
+                    foreach (DateTime day in dayList)
                     {
                         backend.addWorkouts(day, workoutForm.Exercises);
                     }
                 }
                 else
                 {
-                    backend.addWorkouts(DateTime.Now, workoutForm.Exercises);
+                    DateTime date = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day);
+                    
+                    if (this.backend.dateIsInDictionary(workoutForm.Date))
+                    {
+                        daysBackend theDay = this.backend.getDay(workoutForm.Date);
+                        theDay.clearExercises();
+                    }
+                    
+                    this.backend.addWorkouts(workoutForm.Date, workoutForm.Exercises);
                 }
             }
         }

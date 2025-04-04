@@ -158,7 +158,7 @@ namespace Fitness_Tracker_App
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         public int getDayNumber()
@@ -168,11 +168,18 @@ namespace Fitness_Tracker_App
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
             int month = this.originalForm.getMonth();
             int year = this.originalForm.getYear();
             int day = this.getDayNumber();
+            DateTime date = new DateTime(year, month, day);
 
-            var formPopup = new WorkoutForm(new DateTime(month,year,day));
+            var formPopup = new WorkoutForm(date, this.originalForm.backend.getDay(date).GetExercises());
+            formPopup.FormClosed += this.originalForm.WorkoutFormClosed;
             formPopup.ShowDialog(this);
         }
     }

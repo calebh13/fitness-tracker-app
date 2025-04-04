@@ -14,6 +14,18 @@ namespace Fitness_App_Engine
         {
             days = new Dictionary<DateTime, daysBackend>();
         }
+        
+        public daysBackend getDay(DateTime date)
+        {
+            if(this.days.ContainsKey(date))
+            {
+                return this.days[date];
+            }
+            else
+            {
+                return new daysBackend();
+            }
+        }
 
         public bool dateIsInDictionary(DateTime date)
         {

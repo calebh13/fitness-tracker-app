@@ -11,6 +11,13 @@ namespace Fitness_App_Engine
         List<Exercise> exercies;
         List<Meal> nutrition;
 
+        public daysBackend()
+        {
+            this.exercies = new List<Exercise>();
+            this.nutrition = new List<Meal>();
+        }
+
+
         public daysBackend(List<Exercise> exercies, List<Meal> nutrition)
         {
             this.exercies = exercies;
@@ -29,6 +36,11 @@ namespace Fitness_App_Engine
             this.nutrition = nutrition;
         }
 
+        public List<Exercise> GetExercises()
+        {
+            return this.exercies;
+        }
+
         public void addExercises(List<Exercise> newExercises)
         {
             this.exercies.AddRange(newExercises);
@@ -36,6 +48,16 @@ namespace Fitness_App_Engine
         public void addNutrition(List<Meal> newMeals)
         {
             this.nutrition.AddRange(newMeals);
+        }
+
+        public void clearExercises()
+        {
+            this.exercies.Clear();
+        }
+
+        public void clearNutrition()
+        {
+            this.nutrition.Clear();
         }
     }
 }
