@@ -173,13 +173,10 @@ namespace Fitness_Tracker_App
                     }
                 }
                 else
-                {
-                    DateTime date = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day);
-                    
+                {                    
                     if (this.backend.dateIsInDictionary(workoutForm.Date))
                     {
-                        daysBackend theDay = this.backend.getDay(workoutForm.Date);
-                        theDay.clearExercises();
+                        this.backend.getDay(workoutForm.Date).clearExercises();
                     }
                     
                     this.backend.addWorkouts(workoutForm.Date, workoutForm.Exercises);

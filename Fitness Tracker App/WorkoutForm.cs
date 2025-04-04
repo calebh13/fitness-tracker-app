@@ -23,7 +23,7 @@ namespace Fitness_Tracker_App
             ClientSize = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
 
             InitializeComponent();
-            this.exercises = exercises;
+            this.exercises = new List<Exercise>(exercises);
             foreach (Exercise exercise in exercises)
             {
                 AddNewWorkoutEntry(null, EventArgs.Empty, exercise);
@@ -70,6 +70,7 @@ namespace Fitness_Tracker_App
 
         private void SaveData()
         {
+            this.exercises.Clear();
             foreach (var component in flowPanel.Controls)
             {
                 if (component is WorkoutEntry entry)

@@ -21,7 +21,7 @@ namespace Fitness_Tracker_App
 
         public NutritionForm(DateTime date, List<Meal> meals)
         {
-            this.meals = meals;
+            this.meals = new List<Meal>(meals);
             this.Text = "Nutrition Tracker";
             this.ClientSize = new Size(400, (int)(Screen.PrimaryScreen!.WorkingArea.Height * 0.75));
             this.date = date;
@@ -70,6 +70,7 @@ namespace Fitness_Tracker_App
 
         private void SaveData()
         {
+            this.meals.Clear();
             foreach (var component in flowPanel.Controls)
             {
                 if (component is NutritionEntry entry)
