@@ -41,6 +41,11 @@ namespace Fitness_App_Engine
             return this.exercies;
         }
 
+        public List<Meal> GetMeals()
+        {
+            return this.nutrition;
+        }
+
         public void addExercises(List<Exercise> newExercises)
         {
             this.exercies.AddRange(newExercises);

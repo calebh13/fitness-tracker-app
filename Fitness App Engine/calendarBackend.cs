@@ -49,6 +49,19 @@ namespace Fitness_App_Engine
                 days.Add(date, new daysBackend(newExercises));
             }
         }
+
+
+        public void addMeals(DateTime date, List<Meal> newMeals)
+        {
+            if (dateIsInDictionary(date))
+            {
+                days[date].addNutrition(newMeals);
+            }
+            else
+            {
+                days.Add(date, new daysBackend(newMeals));
+            }
+        }
         /*
         private void addDay(DateTime date, List<nutrition> newNutrition)
         {

@@ -191,19 +191,42 @@ namespace Fitness_Tracker_App
         // nutrintion form
         private void button2_Click(object sender, EventArgs e)
         {
+            /*
             List<Meal> meals = new List<Meal>(); // here we will get the list of meals for that day
             var formPopup = new NutritionForm(DateTime.Now, meals);
             formPopup.FormClosed += this.NutritionFormClosed;
             formPopup.ShowDialog(this);
+            */
+            List<Meal> exercises = new List<Meal>(); // here we will get the lists of exercises for that day
+            int month = _month;
+            int year = _year;
+            int day = DateTime.Now.Day;
+            DateTime date = new DateTime(year, month, day);
+            var formPopup = new NutritionForm(date, exercises);
+            formPopup.FormClosed += this.NutritionFormClosed;
+            formPopup.ShowDialog(this);
         }
 
-        private void NutritionFormClosed(object? sender, EventArgs e)
+        public void NutritionFormClosed(object? sender, EventArgs e)
         {
-            if (sender is WorkoutForm workoutForm)
+            if (sender is NutritionForm nutritionForm)
             {
-                foreach (Exercise exercise in workoutForm.Exercises)
+                List<DateTime> dayList = this.datesFromSelectedDays();
+                if (dayList.Any())//from selected days
                 {
-                    // Add to calendar's list of stuff
+                    foreach (DateTime day in dayList)
+                    {
+                        backend.addMeals(day, nutritionForm.Meals);
+                    }
+                }
+                else
+                {
+                    if (this.backend.dateIsInDictionary(nutritionForm.Date))
+                    {
+                        this.backend.getDay(nutritionForm.Date).clearNutrition();
+                    }
+
+                    this.backend.addMeals(nutritionForm.Date, nutritionForm.Meals);
                 }
             }
         }

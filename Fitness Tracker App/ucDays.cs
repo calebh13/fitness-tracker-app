@@ -168,7 +168,14 @@ namespace Fitness_Tracker_App
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int month = this.originalForm.getMonth();
+            int year = this.originalForm.getYear();
+            int day = this.getDayNumber();
+            DateTime date = new DateTime(year, month, day);
 
+            var formPopup = new NutritionForm(date, this.originalForm.backend.getDay(date).GetMeals());
+            formPopup.FormClosed += this.originalForm.NutritionFormClosed;
+            formPopup.ShowDialog(this);
         }
 
         private void button2_Click_1(object sender, EventArgs e)
