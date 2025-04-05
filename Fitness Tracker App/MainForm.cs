@@ -154,7 +154,11 @@ namespace Fitness_Tracker_App
         private void button1_Click(object sender, EventArgs e)
         {
             List<Exercise> exercises = new List<Exercise>(); // here we will get the lists of exercises for that day
-            var formPopup = new WorkoutForm(DateTime.Now, exercises);
+            int month = _month;
+            int year = _year;
+            int day = DateTime.Now.Day;
+            DateTime date = new DateTime(year, month, day);
+            var formPopup = new WorkoutForm(date, exercises);
             formPopup.FormClosed += this.WorkoutFormClosed;
             formPopup.ShowDialog(this);
 
