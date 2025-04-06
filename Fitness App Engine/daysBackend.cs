@@ -8,37 +8,37 @@ namespace Fitness_App_Engine
 {
     public class daysBackend
     {
-        List<Exercise> exercies;
+        List<Exercise> exercises;
         List<Meal> nutrition;
 
         public daysBackend()
         {
-            this.exercies = new List<Exercise>();
+            this.exercises = new List<Exercise>();
             this.nutrition = new List<Meal>();
         }
 
 
-        public daysBackend(List<Exercise> exercies, List<Meal> nutrition)
+        public daysBackend(List<Exercise> exercises, List<Meal> nutrition)
         {
-            this.exercies = exercies;
-            this.nutrition = nutrition;
+            this.exercises = new List<Exercise>(exercises);
+            this.nutrition = new List<Meal>(nutrition);
         }
 
-        public daysBackend(List<Exercise> exercies)
+        public daysBackend(List<Exercise> exercises)
         {
-            this.exercies = exercies;
+            this.exercises = new List<Exercise>(exercises);
             this.nutrition = new List<Meal>();
         }
 
         public daysBackend(List<Meal> nutrition)
         {
-            this.exercies = new List<Exercise>();
-            this.nutrition = nutrition;
+            this.exercises = new List<Exercise>();
+            this.nutrition = new List<Meal>(nutrition) ;
         }
 
         public List<Exercise> GetExercises()
         {
-            return this.exercies;
+            return this.exercises;
         }
 
         public List<Meal> GetMeals()
@@ -48,7 +48,7 @@ namespace Fitness_App_Engine
 
         public void addExercises(List<Exercise> newExercises)
         {
-            this.exercies.AddRange(newExercises);
+            this.exercises.AddRange(newExercises);
         }
         public void addNutrition(List<Meal> newMeals)
         {
@@ -57,7 +57,7 @@ namespace Fitness_App_Engine
 
         public void clearExercises()
         {
-            this.exercies.Clear();
+            this.exercises.Clear();
         }
 
         public void clearNutrition()

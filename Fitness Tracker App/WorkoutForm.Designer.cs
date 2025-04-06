@@ -35,7 +35,6 @@
             // 
             // WorkoutForm
             // 
-            ClientSize = new Size(274, 229);
             Controls.Add(flowPanel);
             Controls.Add(addButton);
             Name = "WorkoutForm";
