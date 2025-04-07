@@ -20,9 +20,12 @@ namespace Fitness_Tracker_App
         public MainForm()
         {
             this.selectedDays = new List<calendarDay>();
+            this.backend = new calendarBackend();
             InitializeComponent();
-            
 
+            string json = File.ReadAllText(filePath);
+            calendarBackend? temp = JsonSerializer.Deserialize<calendarBackend>(json);
+            if (temp != null) this.backend = temp;
         }
 
         public int getMonth()

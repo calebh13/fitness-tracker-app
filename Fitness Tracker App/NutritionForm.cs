@@ -16,7 +16,7 @@ namespace Fitness_Tracker_App
         private readonly DateTime date;
         private List<Meal> meals;
 
-        public DateTime Date { get => this.date.Date; }
+        public DateTime Date { get => this.date; }
         public List<Meal> Meals { get => this.meals; }
 
         public NutritionForm(DateTime date, List<Meal> meals)
