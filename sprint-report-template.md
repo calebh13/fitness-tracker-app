@@ -24,8 +24,8 @@ Here are links to the issues that we completed in this sprint:
  ## Incomplete Issues/User Stories
  Here are links to issues we worked on but did not complete in this sprint:
  
- * (Display Progress and Statistics)[https://github.com/calebh13/fitness-tracker-app/issues/14] - this issue was worked on, but not fully completed. We decided that the more in-depth analysis was fit for Sprint 3.
- * (Create User class)[https://github.com/calebh13/fitness-tracker-app/issues/7] - this issue was too reliant on backend functionality, so we will be working on it for Sprint 3.
+ * [Display Progress and Statistics](https://github.com/calebh13/fitness-tracker-app/issues/14) - this issue was worked on, but not fully completed. We decided that the more in-depth analysis was fit for Sprint 3.
+ * [Create User class](https://github.com/calebh13/fitness-tracker-app/issues/7) - this issue was too reliant on backend functionality, so we will be working on it for Sprint 3.
 
 ## Code Files for Review
 Please review the following code files, which were actively developed during this sprint, for quality:
