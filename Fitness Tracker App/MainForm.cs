@@ -324,19 +324,48 @@ namespace Fitness_Tracker_App
             if (tabIndex == 1)
             {
                 int totalCalories = 0;
+                int totalMeals = 0;
+                int totalProtein = 0;
+                int biggestMeal = 0;
+                string biggestMealName = "";
+
+                int totalWeightMoved = 0;
+                int totalExercises = 0;
+                int heaviestWeight = 0;
+                string heaviestWorkout = "";
                 foreach(var dictionary in backend.DELETEMEIAMAGETTERFORDAYS())
                 {
                     foreach (var exercise in dictionary.Value.GetExercises())
                     {
-                        
+                        totalWeightMoved += exercise.Weight;
+                        totalExercises += 1;
+                        if(exercise.Weight > heaviestWeight)
+                        {
+                            heaviestWeight = exercise.Weight;
+                            heaviestWorkout = exercise.Name;
+                        }
                     }
 
                     foreach (var meal in dictionary.Value.GetMeals())
                     {
-                        totalCalories += meal
+                        totalCalories += meal.Calories;
+                        totalProtein += meal.Protein;
+                        totalMeals += 1;
+                        if(meal.Calories > biggestMeal)
+                        {
+                            biggestMealName = meal.Name;
+                            biggestMeal = meal.Calories;
+                        }
                     }
 
                 }
+                label11.Text = "Total Calories: " + totalCalories + " Calories";
+                label12.Text = "Total Protein: " + totalProtein + " Protein";
+                label15.Text = "Biggest Meal: \"" + biggestMealName + "\" " + biggestMeal + " Calories";
+
+                label14.Text = "Total Weight Moved: " + totalWeightMoved;
+                label13.Text = "Heaviest Weight Moved: \"" + heaviestWorkout + "\" " + heaviestWeight;
+
             }
         }
 
