@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Fitness_App_Engine
@@ -15,10 +16,8 @@ namespace Fitness_App_Engine
             days = new Dictionary<DateTime, daysBackend>();
         }
 
-        public Dictionary<DateTime, daysBackend> DELETEMEIAMAGETTERFORDAYS()
-        {
-            return days;
-        }
+        public Dictionary<DateTime, daysBackend> Days { get => this.days; set => this.days = value; }
+        
         public daysBackend getDay(DateTime date)
         {
             if(this.days.ContainsKey(date))

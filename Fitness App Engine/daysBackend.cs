@@ -8,61 +8,61 @@ namespace Fitness_App_Engine
 {
     public class daysBackend
     {
-        List<Exercise> exercises;
-        List<Meal> nutrition;
+        public List<Exercise> Exercises { get; set; }
+        public List<Meal> Nutrition { get; set; }
 
         public daysBackend()
         {
-            this.exercises = new List<Exercise>();
-            this.nutrition = new List<Meal>();
+            this.Exercises = new List<Exercise>();
+            this.Nutrition = new List<Meal>();
         }
 
 
         public daysBackend(List<Exercise> exercises, List<Meal> nutrition)
         {
-            this.exercises = new List<Exercise>(exercises);
-            this.nutrition = new List<Meal>(nutrition);
+            this.Exercises = new List<Exercise>(exercises);
+            this.Nutrition = new List<Meal>(nutrition);
         }
 
         public daysBackend(List<Exercise> exercises)
         {
-            this.exercises = new List<Exercise>(exercises);
-            this.nutrition = new List<Meal>();
+            this.Exercises = new List<Exercise>(exercises);
+            this.Nutrition = new List<Meal>();
         }
 
         public daysBackend(List<Meal> nutrition)
         {
-            this.exercises = new List<Exercise>();
-            this.nutrition = new List<Meal>(nutrition) ;
+            this.Exercises = new List<Exercise>();
+            this.Nutrition = new List<Meal>(nutrition) ;
         }
 
         public List<Exercise> GetExercises()
         {
-            return this.exercises;
+            return this.Exercises;
         }
 
         public List<Meal> GetMeals()
         {
-            return this.nutrition;
+            return this.Nutrition;
         }
 
         public void addExercises(List<Exercise> newExercises)
         {
-            this.exercises.AddRange(newExercises);
+            this.Exercises.AddRange(newExercises);
         }
         public void addNutrition(List<Meal> newMeals)
         {
-            this.nutrition.AddRange(newMeals);
+            this.Nutrition.AddRange(newMeals);
         }
 
         public void clearExercises()
         {
-            this.exercises.Clear();
+            this.Exercises.Clear();
         }
 
         public void clearNutrition()
         {
-            this.nutrition.Clear();
+            this.Nutrition.Clear();
         }
     }
 }

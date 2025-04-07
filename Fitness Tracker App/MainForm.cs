@@ -17,9 +17,26 @@ namespace Fitness_Tracker_App
         public MainForm()
         {
             this.selectedDays = new List<calendarDay>();
-            backend = new calendarBackend();
+            this.backend = new calendarBackend();
             InitializeComponent();
 
+            try
+            {
+                string json = File.ReadAllText(filePath);
+
+                var result = MessageBox.Show("Previous fitness data detected. Do you want to load it?", "Confirm Load",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    calendarBackend? temp = JsonSerializer.Deserialize<calendarBackend>(json);
+                    if (temp != null) this.backend = temp;
+                }
+            }
+            catch (Exception)
+            {
+                this.backend = new calendarBackend();
+            }
         }
 
         public int getMonth()
