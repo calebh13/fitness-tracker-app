@@ -8,8 +8,11 @@ namespace Fitness_App_Engine
 {
     public class daysBackend
     {
-        List<Exercise> exercises;
-        List<Meal> nutrition;
+        private List<Exercise> exercises;
+        private List<Meal> nutrition;
+
+        public List<Exercise> Exercises { get => this.exercises; }
+        public List<Meal> Nutrition { get => this.nutrition; }
 
         public daysBackend()
         {

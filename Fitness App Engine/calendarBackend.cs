@@ -8,12 +8,14 @@ namespace Fitness_App_Engine
 {
     public class calendarBackend
     {
-        Dictionary<DateTime, daysBackend> days;
-        //List<goals> goals
+        private Dictionary<DateTime, daysBackend> days;
+
         public calendarBackend()
         {
             days = new Dictionary<DateTime, daysBackend>();
         }
+
+        public IReadOnlyDictionary<DateTime, daysBackend> Days { get => this.days; }
         
         public daysBackend getDay(DateTime date)
         {

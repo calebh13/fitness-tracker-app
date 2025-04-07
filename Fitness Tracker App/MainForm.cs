@@ -1,11 +1,14 @@
 using Fitness_App_Engine;
 using System.Globalization;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace Fitness_Tracker_App
 {
     public partial class MainForm : Form
     {
+        private const string filePath = "./calendarData.json";
+
         public static int _year, _month;
 
         public static int _dayWidth, _dayHeight;
@@ -17,8 +20,8 @@ namespace Fitness_Tracker_App
         public MainForm()
         {
             this.selectedDays = new List<calendarDay>();
-            backend = new calendarBackend();
             InitializeComponent();
+            
 
         }
 
@@ -37,7 +40,7 @@ namespace Fitness_Tracker_App
         {
 
         }
-         
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -166,7 +169,7 @@ namespace Fitness_Tracker_App
 
         public void WorkoutFormClosed(object? sender, EventArgs e)
         {
-            if(sender is WorkoutForm workoutForm)
+            if (sender is WorkoutForm workoutForm)
             {
                 List<DateTime> dayList = this.datesFromSelectedDays();
                 if (dayList.Any())//from selected days
@@ -177,12 +180,12 @@ namespace Fitness_Tracker_App
                     }
                 }
                 else
-                {                    
+                {
                     if (this.backend.dateIsInDictionary(workoutForm.Date))
                     {
                         this.backend.getDay(workoutForm.Date).clearExercises();
                     }
-                    
+
                     this.backend.addWorkouts(workoutForm.Date, workoutForm.Exercises);
                 }
             }
@@ -296,13 +299,13 @@ namespace Fitness_Tracker_App
             int numSelectedDays = 0;
             foreach (calendarDay ctrl in flowLayoutPanel1.Controls)
             {
-                if(ctrl.isSelected())
+                if (ctrl.isSelected())
                 {
                     numSelectedDays += 1;
                 }
             }
             var formPopup = new Form();
-            int shade = (int) (255 / 42.0 * numSelectedDays);
+            int shade = (int)(255 / 42.0 * numSelectedDays);
             formPopup.BackColor = Color.FromArgb(shade, shade, shade);
             formPopup.ShowDialog(this);
         }
@@ -310,12 +313,37 @@ namespace Fitness_Tracker_App
         private List<DateTime> datesFromSelectedDays()//can be changed to return an array of dates/ a date struct
         {
             List<DateTime> listOfSelectedDates = new List<DateTime>();
-            foreach(calendarDay ctrl in this.selectedDays)
+            foreach (calendarDay ctrl in this.selectedDays)
             {
 
                 listOfSelectedDates.Add(new DateTime(_year, _month, ctrl.getDayNumber()));
             }
             return listOfSelectedDates;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Do you want to save before exiting?", "Confirm Exit",
+                                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.SaveData();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void SaveData()
+        {
+            string json = JsonSerializer.Serialize(this.backend, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            File.WriteAllText(filePath, json);
         }
     }
 }
