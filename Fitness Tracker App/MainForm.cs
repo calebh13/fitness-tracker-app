@@ -1,11 +1,14 @@
 using Fitness_App_Engine;
 using System.Globalization;
 using System.Windows.Forms;
+using System.Text.Json;
 
 namespace Fitness_Tracker_App
 {
     public partial class MainForm : Form
     {
+        private const string filePath = "./calendarData.json";
+
         public static int _year, _month;
 
         public static int _dayWidth, _dayHeight;
@@ -358,7 +361,7 @@ namespace Fitness_Tracker_App
                 int totalExercises = 0;
                 int heaviestWeight = 0;
                 string heaviestWorkout = "";
-                foreach(var dictionary in backend.DELETEMEIAMAGETTERFORDAYS())
+                foreach(var dictionary in backend.Days)
                 {
                     foreach (var exercise in dictionary.Value.GetExercises())
                     {

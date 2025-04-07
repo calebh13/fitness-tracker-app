@@ -18,7 +18,7 @@
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.Location = new Point(0, 0);
             flowPanel.Name = "flowPanel";
-            flowPanel.Size = new Size(274, 229);
+            flowPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45);
             flowPanel.TabIndex = 0;
             flowPanel.WrapContents = false;
             flowPanel.Paint += flowPanel_Paint;
