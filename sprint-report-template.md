@@ -1,5 +1,5 @@
 # Sprint 2 Report 
-Video Link: 
+[Video Link](https://youtu.be/jo_KBJqXBdk)
 ## What's New (User Facing)
  * Data Persistence: This is the main feature - workouts and meals are actually logged.
  * Calendar Backend: This is scaffolding to the previous issue - we developed an internal structure for the calendar backend.
