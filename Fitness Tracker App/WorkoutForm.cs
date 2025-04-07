@@ -16,7 +16,7 @@ namespace Fitness_Tracker_App
         private readonly DateTime date;
 
         public List<Exercise> Exercises { get => this.exercises; }
-        public DateTime Date { get => this.date.Date; }
+        public DateTime Date { get => this.date; }
 
         public WorkoutForm(DateTime date, List<Exercise> exercises)
         {

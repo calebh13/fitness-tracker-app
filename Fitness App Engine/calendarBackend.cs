@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Fitness_App_Engine
 {
     public class calendarBackend
     {
-        Dictionary<DateTime, daysBackend> days;
-        //List<goals> goals
+        private Dictionary<DateTime, daysBackend> days;
+
         public calendarBackend()
         {
             days = new Dictionary<DateTime, daysBackend>();
         }
+
+        public Dictionary<DateTime, daysBackend> Days { get => this.days; set => this.days = value; }
         
         public daysBackend getDay(DateTime date)
         {
