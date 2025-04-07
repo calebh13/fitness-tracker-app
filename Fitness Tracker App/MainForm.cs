@@ -175,6 +175,10 @@ namespace Fitness_Tracker_App
                     {
                         backend.addWorkouts(day, workoutForm.Exercises);
                     }
+                    foreach (calendarDay ctrl in flowLayoutPanel1.Controls)
+                    {
+                        ctrl.deselectDay();  
+                    }
                 }
                 else
                 {
@@ -217,6 +221,10 @@ namespace Fitness_Tracker_App
                     foreach (DateTime day in dayList)
                     {
                         backend.addMeals(day, nutritionForm.Meals);
+                    }
+                    foreach (calendarDay ctrl in flowLayoutPanel1.Controls)
+                    {
+                        ctrl.deselectDay();
                     }
                 }
                 else
