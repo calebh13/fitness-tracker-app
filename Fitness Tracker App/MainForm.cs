@@ -37,7 +37,7 @@ namespace Fitness_Tracker_App
         {
 
         }
-         
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -166,7 +166,7 @@ namespace Fitness_Tracker_App
 
         public void WorkoutFormClosed(object? sender, EventArgs e)
         {
-            if(sender is WorkoutForm workoutForm)
+            if (sender is WorkoutForm workoutForm)
             {
                 List<DateTime> dayList = this.datesFromSelectedDays();
                 if (dayList.Any())//from selected days
@@ -177,12 +177,12 @@ namespace Fitness_Tracker_App
                     }
                 }
                 else
-                {                    
+                {
                     if (this.backend.dateIsInDictionary(workoutForm.Date))
                     {
                         this.backend.getDay(workoutForm.Date).clearExercises();
                     }
-                    
+
                     this.backend.addWorkouts(workoutForm.Date, workoutForm.Exercises);
                 }
             }
@@ -296,13 +296,13 @@ namespace Fitness_Tracker_App
             int numSelectedDays = 0;
             foreach (calendarDay ctrl in flowLayoutPanel1.Controls)
             {
-                if(ctrl.isSelected())
+                if (ctrl.isSelected())
                 {
                     numSelectedDays += 1;
                 }
             }
             var formPopup = new Form();
-            int shade = (int) (255 / 42.0 * numSelectedDays);
+            int shade = (int)(255 / 42.0 * numSelectedDays);
             formPopup.BackColor = Color.FromArgb(shade, shade, shade);
             formPopup.ShowDialog(this);
         }
@@ -310,12 +310,39 @@ namespace Fitness_Tracker_App
         private List<DateTime> datesFromSelectedDays()//can be changed to return an array of dates/ a date struct
         {
             List<DateTime> listOfSelectedDates = new List<DateTime>();
-            foreach(calendarDay ctrl in this.selectedDays)
+            foreach (calendarDay ctrl in this.selectedDays)
             {
 
                 listOfSelectedDates.Add(new DateTime(_year, _month, ctrl.getDayNumber()));
             }
             return listOfSelectedDates;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tabIndex = tabControl1.SelectedIndex;
+            if (tabIndex == 1)
+            {
+                for(var auto in backend.)
+                {
+
+                }
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
