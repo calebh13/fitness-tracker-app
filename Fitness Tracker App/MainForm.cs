@@ -323,8 +323,18 @@ namespace Fitness_Tracker_App
             int tabIndex = tabControl1.SelectedIndex;
             if (tabIndex == 1)
             {
-                for(var auto in backend.)
+                int totalCalories = 0;
+                foreach(var dictionary in backend.DELETEMEIAMAGETTERFORDAYS())
                 {
+                    foreach (var exercise in dictionary.Value.GetExercises())
+                    {
+                        
+                    }
+
+                    foreach (var meal in dictionary.Value.GetMeals())
+                    {
+                        totalCalories += meal
+                    }
 
                 }
             }

@@ -14,7 +14,11 @@ namespace Fitness_App_Engine
         {
             days = new Dictionary<DateTime, daysBackend>();
         }
-        
+
+        public Dictionary<DateTime, daysBackend> DELETEMEIAMAGETTERFORDAYS()
+        {
+            return days;
+        }
         public daysBackend getDay(DateTime date)
         {
             if(this.days.ContainsKey(date))
