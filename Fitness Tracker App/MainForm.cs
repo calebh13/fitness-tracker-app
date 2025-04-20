@@ -22,14 +22,15 @@ namespace Fitness_Tracker_App
         {
 
             filePath = "./users/" + username;
-            DirectoryInfo directory = Directory.CreateDirectory(filePath);
+            //DirectoryInfo directory = Directory.CreateDirectory(filePath);
+            Directory.CreateDirectory(filePath);
             this.selectedDays = new List<calendarDay>();
             this.backend = new calendarBackend();
             InitializeComponent();
 
             try
             {
-                string json = File.ReadAllText(filePath);
+                string json = File.ReadAllText(filePath + "/calendarData.json");
 
                 var result = MessageBox.Show("Previous fitness data detected. Do you want to load it?", "Confirm Load",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);

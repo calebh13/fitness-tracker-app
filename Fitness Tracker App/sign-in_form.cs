@@ -18,7 +18,19 @@ namespace Fitness_Tracker_App
         {
             InitializeComponent();
             this.sign_in.BackColor = Color.LightGray;
-            userNames = new List<string>();
+            userNames = loadUserNamesFromFile();
+            updateDropdown();
+        }
+
+        public List<string> loadUserNamesFromFile()
+        {
+            string[] users = Directory.GetDirectories("./users/");
+            List<string> newUsernames = new List<string>();
+            foreach (string str in users)
+            {
+                newUsernames.Add(str.Substring(8));
+            }
+            return newUsernames;
         }
 
         public List<string> getAllUserNames()
