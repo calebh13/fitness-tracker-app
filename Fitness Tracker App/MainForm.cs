@@ -2,6 +2,10 @@ using Fitness_App_Engine;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Text.Json;
+using OxyPlot.Axes;
+using OxyPlot.Series;
+using OxyPlot.WindowsForms;
+using OxyPlot;
 
 namespace Fitness_Tracker_App
 {
@@ -32,8 +36,7 @@ namespace Fitness_Tracker_App
 
                 if (result == DialogResult.Yes)
                 {
-                    calendarBackend? temp = JsonSerializer.Deserialize<calendarBackend>(json);
-                    if (temp != null) this.backend = temp;
+                    this.LoadData(json);
                 }
             }
             catch (Exception)
@@ -331,7 +334,7 @@ namespace Fitness_Tracker_App
             }
             var formPopup = new Form();
             int shade = (int)(255 / 42.0 * numSelectedDays);
-            formPopup.BackColor = Color.FromArgb(shade, shade, shade);
+            formPopup.BackColor = System.Drawing.Color.FromArgb(shade, shade, shade);
             formPopup.ShowDialog(this);
         }
 
@@ -394,6 +397,72 @@ namespace Fitness_Tracker_App
                 label14.Text = "Total Weight Moved: " + totalWeightMoved;
                 label13.Text = "Heaviest Weight Moved: \"" + heaviestWorkout + "\" " + heaviestWeight;
 
+
+                // Graphing
+
+                var plotModel = new PlotModel { Title = "Calorie Graph" };
+
+                var barSeries = new RectangleBarSeries
+                {
+                    FillColor = OxyColors.ForestGreen,
+                    StrokeColor = OxyColors.Black,
+                    StrokeThickness = 1
+                };
+
+                int index = 0;
+                var labels = new List<string>();
+
+                this.SaveData();
+                string json = File.ReadAllText(filePath);
+                this.LoadData(json);
+
+                foreach (var day in backend.Days.Keys.OrderBy(d => d))
+                {
+                    int calories = backend.getDay(day).GetMeals().Sum(m => m.Calories);
+
+                    // Bar from (x=index - 0.4) to (x=index + 0.4), y from 0 to calories
+                    barSeries.Items.Add(new RectangleBarItem(index - 0.4, 0, index + 0.4, calories));
+                    labels.Add(day.Date.ToString("M/d"));
+                    index++;
+                }
+
+                // X axis (bottom) — treat x-coordinates as categories
+                var xAxis = new CategoryAxis
+                {
+                    Position = AxisPosition.Bottom,
+                    Angle = 45,
+                    Title = "Date"
+                };
+
+                xAxis.LabelFormatter = (value) =>
+                {
+                    if (value >= 0 && value < labels.Count)
+                    {
+                        return labels[(int)value];
+                    }
+                    return string.Empty;
+                };
+
+                // Y axis (left)
+                var yAxis = new LinearAxis
+                {
+                    Position = AxisPosition.Left,
+                    Title = "Calories"
+                };
+
+                plotModel.Series.Add(barSeries);
+                plotModel.Axes.Add(xAxis);
+                plotModel.Axes.Add(yAxis);
+
+                // Plot view
+                var plotView = new PlotView
+                {
+                    Model = plotModel,
+                    Dock = DockStyle.Fill
+                };
+
+                this.panel1.Controls.Add(plotView);
+
             }
         }
 
@@ -435,6 +504,12 @@ namespace Fitness_Tracker_App
             });
 
             File.WriteAllText(filePath, json);
+        }
+
+        private void LoadData(string json)
+        {
+            calendarBackend? temp = JsonSerializer.Deserialize<calendarBackend>(json);
+            if (temp != null) this.backend = temp;
         }
     }
 }
