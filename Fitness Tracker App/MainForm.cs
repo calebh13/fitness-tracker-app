@@ -197,7 +197,7 @@ namespace Fitness_Tracker_App
                     }
                     foreach (calendarDay ctrl in flowLayoutPanel1.Controls)
                     {
-                        ctrl.deselectDay();  
+                        ctrl.deselectDay();
                     }
                 }
                 else
@@ -361,13 +361,13 @@ namespace Fitness_Tracker_App
                 int totalExercises = 0;
                 int heaviestWeight = 0;
                 string heaviestWorkout = "";
-                foreach(var dictionary in backend.Days)
+                foreach (var dictionary in backend.Days)
                 {
                     foreach (var exercise in dictionary.Value.GetExercises())
                     {
                         totalWeightMoved += exercise.Weight;
                         totalExercises += 1;
-                        if(exercise.Weight > heaviestWeight)
+                        if (exercise.Weight > heaviestWeight)
                         {
                             heaviestWeight = exercise.Weight;
                             heaviestWorkout = exercise.Name;
@@ -379,7 +379,7 @@ namespace Fitness_Tracker_App
                         totalCalories += meal.Calories;
                         totalProtein += meal.Protein;
                         totalMeals += 1;
-                        if(meal.Calories > biggestMeal)
+                        if (meal.Calories > biggestMeal)
                         {
                             biggestMealName = meal.Name;
                             biggestMeal = meal.Calories;
@@ -410,6 +410,31 @@ namespace Fitness_Tracker_App
         private void label15_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainForm_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Do you want to save before exiting?", "Confirm Exit",
+                                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.SaveData();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void SaveData()
+        {
+            string json = JsonSerializer.Serialize(this.backend, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            File.WriteAllText(filePath, json);
         }
     }
 }
