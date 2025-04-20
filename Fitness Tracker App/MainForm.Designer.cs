@@ -30,7 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            textBox1 = new TextBox();
+            textBox1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
             label3 = new Label();
@@ -97,14 +97,12 @@
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.BackColor = SystemColors.Control;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Location = new Point(511, 810);
-            textBox1.Multiline = true;
+            textBox1.Location = new Point(504, 819);
             textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(376, 61);
+            textBox1.Size = new Size(370, 52);
             textBox1.TabIndex = 14;
+            textBox1.Text = "label16";
+            textBox1.Click += textBox1_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -415,6 +413,6 @@
         private Label label13;
         private Label label14;
         private Label label15;
-        private TextBox textBox1;
+        private Label textBox1;
     }
 }

@@ -22,7 +22,7 @@ namespace Fitness_Tracker_App
             this.selectedDays = new List<calendarDay>();
             this.backend = new calendarBackend();
             InitializeComponent();
-            
+
             try
             {
                 string json = File.ReadAllText(filePath);
@@ -506,6 +506,11 @@ namespace Fitness_Tracker_App
                     this.textBox1.Text = $"Your heaviest weight that you've lifted could be lifted by {stat} doung beetle(s)!";
                     break;
             }
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
