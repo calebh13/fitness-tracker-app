@@ -31,6 +31,8 @@
             textBox1 = new TextBox();
             Title = new Label();
             comboBox1 = new ComboBox();
+            sign_in = new Button();
+            newUserButton = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -45,7 +47,7 @@
             // 
             Title.AutoSize = true;
             Title.Font = new Font("Segoe UI", 25F);
-            Title.Location = new Point(346, 47);
+            Title.Location = new Point(355, 47);
             Title.Name = "Title";
             Title.Size = new Size(425, 89);
             Title.TabIndex = 1;
@@ -54,20 +56,45 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(246, 405);
+            comboBox1.Location = new Point(368, 166);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(376, 40);
             comboBox1.TabIndex = 2;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // Form1
+            // sign_in
+            // 
+            sign_in.Font = new Font("Segoe UI", 10F);
+            sign_in.Location = new Point(799, 162);
+            sign_in.Name = "sign_in";
+            sign_in.Size = new Size(150, 46);
+            sign_in.TabIndex = 4;
+            sign_in.Text = "Sign-In";
+            sign_in.UseVisualStyleBackColor = true;
+            sign_in.Click += sign_in_Click;
+            // 
+            // newUserButton
+            // 
+            newUserButton.Location = new Point(446, 248);
+            newUserButton.Name = "newUserButton";
+            newUserButton.Size = new Size(200, 46);
+            newUserButton.TabIndex = 5;
+            newUserButton.Text = "Create New User";
+            newUserButton.UseVisualStyleBackColor = true;
+            newUserButton.Click += newUser_Click;
+            // 
+            // sign_in_form
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1174, 1170);
+            ClientSize = new Size(1174, 348);
+            Controls.Add(newUserButton);
+            Controls.Add(sign_in);
             Controls.Add(comboBox1);
             Controls.Add(Title);
             Controls.Add(textBox1);
-            Name = "Form1";
+            Name = "sign_in_form";
+            SizeGripStyle = SizeGripStyle.Show;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -78,5 +105,7 @@
         private TextBox textBox1;
         private Label Title;
         private ComboBox comboBox1;
+        private Button sign_in;
+        private Button newUserButton;
     }
 }

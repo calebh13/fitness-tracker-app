@@ -2,12 +2,13 @@ using Fitness_App_Engine;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Text.Json;
+using System.IO;
 
 namespace Fitness_Tracker_App
 {
     public partial class MainForm : Form
     {
-        private const string filePath = "./calendarData.json";
+        private string filePath;
 
         public static int _year, _month;
 
@@ -17,8 +18,11 @@ namespace Fitness_Tracker_App
 
         public calendarBackend backend;
 
-        public MainForm()
+        public MainForm(string username)
         {
+
+            filePath = "./users/" + username + "/calendarData.json";
+            DirectoryInfo directory = Directory.CreateDirectory(filePath);
             this.selectedDays = new List<calendarDay>();
             this.backend = new calendarBackend();
             InitializeComponent();
