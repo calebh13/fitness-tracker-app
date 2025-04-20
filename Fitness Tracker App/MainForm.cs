@@ -460,7 +460,7 @@ namespace Fitness_Tracker_App
                 var labels = new List<string>();
 
                 this.SaveData();
-                string json = File.ReadAllText(filePath);
+                string json = File.ReadAllText(filePath + "/calendarData.json");
                 this.LoadData(json);
 
                 foreach (var day in backend.Days.Keys.OrderBy(d => d))

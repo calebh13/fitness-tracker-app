@@ -24,6 +24,7 @@ namespace Fitness_Tracker_App
 
         public List<string> loadUserNamesFromFile()
         {
+            Directory.CreateDirectory("./users/");
             string[] users = Directory.GetDirectories("./users/");
             List<string> newUsernames = new List<string>();
             foreach (string str in users)
