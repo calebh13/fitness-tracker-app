@@ -47,9 +47,12 @@ namespace Fitness_Tracker_App
 
         private void sign_in_Click(object sender, EventArgs e)
         {
-            if (this.comboBox1.TabIndex != 0)
+            if (this.sign_in.BackColor != Color.LightGray)
             {
-                
+                var formPopup = new MainForm(this.comboBox1.Text);
+                this.Hide();
+                formPopup.ShowDialog(this);
+                this.Close();
             }
         }
 

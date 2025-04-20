@@ -21,7 +21,7 @@ namespace Fitness_Tracker_App
         public MainForm(string username)
         {
 
-            filePath = "./users/" + username + "/calendarData.json";
+            filePath = "./users/" + username;
             DirectoryInfo directory = Directory.CreateDirectory(filePath);
             this.selectedDays = new List<calendarDay>();
             this.backend = new calendarBackend();
@@ -438,7 +438,7 @@ namespace Fitness_Tracker_App
                 WriteIndented = true
             });
 
-            File.WriteAllText(filePath, json);
+            File.WriteAllText(filePath + "/calendarData.json", json);
         }
     }
 }
