@@ -11,7 +11,7 @@ namespace Fitness_Tracker_App
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new sign_in_form());
         }
     }
 }

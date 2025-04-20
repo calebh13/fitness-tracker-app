@@ -6,12 +6,13 @@ using OxyPlot.Axes;
 using OxyPlot.Series;
 using OxyPlot.WindowsForms;
 using OxyPlot;
+using System.IO;
 
 namespace Fitness_Tracker_App
 {
     public partial class MainForm : Form
     {
-        private const string filePath = "./calendarData.json";
+        private string filePath;
 
         public static int _year, _month;
 
@@ -21,15 +22,19 @@ namespace Fitness_Tracker_App
 
         public calendarBackend backend;
 
-        public MainForm()
+        public MainForm(string username)
         {
+
+            filePath = "./users/" + username;
+            //DirectoryInfo directory = Directory.CreateDirectory(filePath);
+            Directory.CreateDirectory(filePath);
             this.selectedDays = new List<calendarDay>();
             this.backend = new calendarBackend();
             InitializeComponent();
 
             try
             {
-                string json = File.ReadAllText(filePath);
+                string json = File.ReadAllText(filePath + "/calendarData.json");
 
                 var result = MessageBox.Show("Previous fitness data detected. Do you want to load it?", "Confirm Load",
                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -545,7 +550,7 @@ namespace Fitness_Tracker_App
                 WriteIndented = true
             });
 
-            File.WriteAllText(filePath, json);
+            File.WriteAllText(filePath + "/calendarData.json", json);
         }
 
         private void FunFact()
