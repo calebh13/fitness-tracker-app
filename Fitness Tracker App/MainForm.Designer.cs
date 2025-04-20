@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            textBox1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
             label3 = new Label();
@@ -75,6 +76,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(tableLayoutPanel1);
             tabPage1.Controls.Add(button3);
             tabPage1.Controls.Add(button2);
@@ -85,13 +87,27 @@
             tabPage1.Controls.Add(flowLayoutPanel1);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Margin = new Padding(2);
+            tabPage1.Location = new Point(4, 34);
+            tabPage1.Margin = new Padding(2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2);
             tabPage1.Size = new Size(714, 698);
+            tabPage1.Padding = new Padding(2);
+            tabPage1.Size = new Size(895, 876);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Calendar";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox1.Location = new Point(504, 819);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(370, 52);
+            textBox1.TabIndex = 14;
+            textBox1.Text = "label16";
+            textBox1.Click += textBox1_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -111,7 +127,7 @@
             tableLayoutPanel1.Controls.Add(label5, 4, 0);
             tableLayoutPanel1.Controls.Add(label6, 5, 0);
             tableLayoutPanel1.Controls.Add(label8, 6, 0);
-            tableLayoutPanel1.Location = new Point(4, 58);
+            tableLayoutPanel1.Location = new Point(5, 72);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -197,7 +213,7 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button3.Location = new Point(294, 655);
+            button3.Location = new Point(368, 819);
             button3.Margin = new Padding(2);
             button3.Name = "button3";
             button3.Size = new Size(105, 29);
@@ -209,7 +225,7 @@
             // button2
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.Location = new Point(177, 655);
+            button2.Location = new Point(221, 819);
             button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(105, 29);
@@ -221,7 +237,7 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.Location = new Point(53, 655);
+            button1.Location = new Point(66, 819);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(105, 29);
@@ -268,7 +284,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.Location = new Point(4, 86);
+            flowLayoutPanel1.Location = new Point(5, 108);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(707, 565);
@@ -287,8 +303,8 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Margin = new Padding(2, 2, 2, 2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(2, 2, 2, 2);
-            tabPage2.Size = new Size(714, 698);
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(895, 876);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "Statistics";
             tabPage2.UseVisualStyleBackColor = true;
@@ -348,11 +364,11 @@
             // 
             // tabPage3
             // 
-            tabPage3.Location = new Point(4, 29);
+            tabPage3.Location = new Point(4, 34);
             tabPage3.Margin = new Padding(2);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(2);
-            tabPage3.Size = new Size(714, 698);
+            tabPage3.Size = new Size(895, 876);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "Leaderboard";
             tabPage3.UseVisualStyleBackColor = true;
@@ -411,6 +427,7 @@
         private Label label13;
         private Label label14;
         private Label label15;
+        private Label textBox1;
         private Panel panel1;
     }
 }

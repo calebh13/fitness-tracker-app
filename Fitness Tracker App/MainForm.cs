@@ -43,6 +43,7 @@ namespace Fitness_Tracker_App
             {
                 this.backend = new calendarBackend();
             }
+            this.FunFact();
         }
 
         public int getMonth()
@@ -212,6 +213,7 @@ namespace Fitness_Tracker_App
 
                     this.backend.addWorkouts(workoutForm.Date, workoutForm.Exercises);
                 }
+                this.FunFact();
             }
         }
 
@@ -259,6 +261,7 @@ namespace Fitness_Tracker_App
 
                     this.backend.addMeals(nutritionForm.Date, nutritionForm.Meals);
                 }
+                this.FunFact();
             }
         }
 
@@ -543,6 +546,79 @@ namespace Fitness_Tracker_App
             });
 
             File.WriteAllText(filePath, json);
+        }
+
+        private void FunFact()
+        {
+            int totalCalories = 0;
+            int totalMeals = 0;
+            int totalProtein = 0;
+            int biggestMeal = 0;
+            string biggestMealName = "";
+
+            int totalWeightMoved = 0;
+            int totalExercises = 0;
+            int heaviestWeight = 0;
+            string heaviestWorkout = "";
+            foreach (var dictionary in backend.Days)
+            {
+                foreach (var exercise in dictionary.Value.GetExercises())
+                {
+                    totalWeightMoved += exercise.Weight;
+                    totalExercises += 1;
+                    if (exercise.Weight > heaviestWeight)
+                    {
+                        heaviestWeight = exercise.Weight;
+                        heaviestWorkout = exercise.Name;
+                    }
+                }
+
+                foreach (var meal in dictionary.Value.GetMeals())
+                {
+                    totalCalories += meal.Calories;
+                    totalProtein += meal.Protein;
+                    totalMeals += 1;
+                    if (meal.Calories > biggestMeal)
+                    {
+                        biggestMealName = meal.Name;
+                        biggestMeal = meal.Calories;
+                    }
+                }
+
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(1, 6);
+            double stat = 0;
+
+            switch (randomNumber)
+            {
+                case 1:
+                    stat = Math.Round(totalCalories / 1500.0, 2);
+                    this.textBox1.Text = $"You have eaten {stat} costco rotisserie chicken(s) in calories!";
+                    break;
+                case 2:
+                    stat = Math.Round(totalWeightMoved / 12000.0, 2);
+                    this.textBox1.Text = $"You have lifted {stat} elephant(s)!";
+                    break;
+                case 3:
+                    stat = Math.Round(totalProtein / 54.0, 2);
+                    this.textBox1.Text = $"You have eaten {stat} jif peanutbutter(s) in protein!";
+                    break;
+                case 4:
+                    stat = Math.Round(biggestMeal / 7726.0, 2);
+                    this.textBox1.Text = $"Your bigest meal was {stat}% of the world record!";
+                    break;
+                case 5:
+                    stat = Math.Ceiling(heaviestWeight / 18.0);
+                    this.textBox1.Text = $"Your heaviest weight that you've lifted could be lifted by {stat} doung beetle(s)!";
+                    break;
+            }
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void LoadData(string json)
