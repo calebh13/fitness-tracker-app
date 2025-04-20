@@ -64,6 +64,7 @@
             Controls.Add(addGoalButton);
             Name = "GoalForm";
             Text = "GoalForm";
+            FormClosing += GoalForm_FormClosing;
             ResumeLayout(false);
         }
 

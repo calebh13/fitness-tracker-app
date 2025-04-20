@@ -10,10 +10,12 @@ namespace Fitness_App_Engine
     public class calendarBackend
     {
         Dictionary<DateTime, daysBackend> days;
+        public List<Exercise> goals { get; set; }
         //List<goals> goals
         public calendarBackend()
         {
             days = new Dictionary<DateTime, daysBackend>();
+            this.goals = new List<Exercise>();
         }
 
         public Dictionary<DateTime, daysBackend> Days { get => this.days; set => this.days = value; }
@@ -39,6 +41,13 @@ namespace Fitness_App_Engine
             else
             {
                 return false;
+            }
+        }
+
+        public void AddGoals(List<Exercise> newExercises)
+        {
+            foreach (Exercise e in newExercises){
+                goals.Add(e);
             }
         }
         public void addWorkouts(DateTime date, List<Exercise> newExercises)
