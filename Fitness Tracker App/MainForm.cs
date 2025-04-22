@@ -271,18 +271,17 @@ namespace Fitness_Tracker_App
         }
 
         /// <summary>
-        /// The buttono to create a goal form.
+        /// The button to create a goal form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            List<Exercise> exercises = new List<Exercise>(); // here we will get the lists of exercises for that day
             int month = _month;
             int year = _year;
             int day = DateTime.Now.Day;
             DateTime date = new DateTime(year, month, day);
-            var formPopup = new GoalForm(date, exercises);
+            var formPopup = new GoalForm(date, this.backend.goals);
             formPopup.FormClosed += this.GoalFormClosed;
             formPopup.ShowDialog(this);
         }
