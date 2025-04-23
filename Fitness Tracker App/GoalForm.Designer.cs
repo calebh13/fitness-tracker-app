@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-
             addGoalButton = new Button();
             flowPanel = new FlowLayoutPanel();
             SuspendLayout();
@@ -36,9 +35,10 @@
             // addGoalButton
             // 
             addGoalButton.Dock = DockStyle.Bottom;
-            addGoalButton.Location = new Point(0, 416);
+            addGoalButton.Location = new Point(0, 249);
+            addGoalButton.Margin = new Padding(4, 4, 4, 4);
             addGoalButton.Name = "addGoalButton";
-            addGoalButton.Size = new Size(800, 34);
+            addGoalButton.Size = new Size(356, 44);
             addGoalButton.TabIndex = 0;
             addGoalButton.Text = "Add Goal";
             addGoalButton.UseMnemonic = false;
@@ -51,19 +51,22 @@
             flowPanel.Dock = DockStyle.Top;
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.Location = new Point(0, 0);
+            flowPanel.Margin = new Padding(4, 4, 4, 4);
             flowPanel.Name = "flowPanel";
-            flowPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - 45);
+            flowPanel.Size = new Size(356, 293);
             flowPanel.TabIndex = 1;
             flowPanel.WrapContents = false;
             // 
             // GoalForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(356, 293);
             Controls.Add(flowPanel);
             Controls.Add(addGoalButton);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "GoalForm";
-            Text = "GoalForm";
+            Text = "Goal Form";
             FormClosing += GoalForm_FormClosing;
             ResumeLayout(false);
         }
