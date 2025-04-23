@@ -29,6 +29,7 @@ namespace Fitness_Tracker_App
             {
                 parentForm.addUserName(textBox1.Text);
                 parentForm.updateDropdown();
+                Directory.CreateDirectory("./users/"+textBox1.Text);
                 this.Close();
             }
         }
