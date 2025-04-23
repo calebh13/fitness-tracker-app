@@ -90,10 +90,6 @@ namespace Fitness_Tracker_App
                     if (!int.TryParse(entry.Controls["setsBox"]!.Text, out sets)) continue;
                     if (!int.TryParse(entry.Controls["repsBox"]!.Text, out reps)) continue;
                     var exercise = new Exercise(name, weight, sets, reps);
-
-                    var result = MessageBox.Show("Name weight sets reps: "
-                        + exercise.Name + ", " + exercise.Weight + ", " + exercise.Sets + ", " + exercise.Reps);
-
                     this.exercises.Add(exercise);
                 }
             }

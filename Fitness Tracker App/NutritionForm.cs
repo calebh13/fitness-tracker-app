@@ -55,7 +55,8 @@ namespace Fitness_Tracker_App
 
         private void NutritionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show("Do you want to save before exiting?", "Confirm Exit",
+            var result = MessageBox
+                .Show("Do you want to save before exiting?", "Confirm Exit",
                                  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
@@ -80,10 +81,6 @@ namespace Fitness_Tracker_App
                     if (!int.TryParse(entry.Controls["caloriesBox"]!.Text, out calories)) continue;
                     if (!int.TryParse(entry.Controls["proteinBox"]!.Text, out protein)) continue;
                     var meal = new Meal(name, calories, protein);
-
-                    var result = MessageBox.Show("Name weight sets reps: "
-                        + meal.Name + ", " + meal.Calories + ", " + meal.Protein);
-
                     this.meals.Add(meal);
                 }
             }

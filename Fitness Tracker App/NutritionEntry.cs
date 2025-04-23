@@ -11,7 +11,7 @@ using Fitness_App_Engine;
 
 namespace Fitness_Tracker_App
 {
-    public partial class NutritionEntry: UserControl
+    public partial class NutritionEntry : UserControl
     {
         public event EventHandler? RemoveClicked;
 
@@ -98,6 +98,11 @@ namespace Fitness_Tracker_App
         private void removeButton_Click(object sender, EventArgs e)
         {
             RemoveClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
