@@ -33,6 +33,7 @@
             comboBox1 = new ComboBox();
             sign_in = new Button();
             newUserButton = new Button();
+            remove_user = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -65,7 +66,7 @@
             // sign_in
             // 
             sign_in.Font = new Font("Segoe UI", 10F);
-            sign_in.Location = new Point(799, 162);
+            sign_in.Location = new Point(793, 160);
             sign_in.Name = "sign_in";
             sign_in.Size = new Size(150, 46);
             sign_in.TabIndex = 4;
@@ -83,11 +84,23 @@
             newUserButton.UseVisualStyleBackColor = true;
             newUserButton.Click += newUser_Click;
             // 
+            // remove_user
+            // 
+            remove_user.Font = new Font("Segoe UI", 10F);
+            remove_user.Location = new Point(116, 160);
+            remove_user.Name = "remove_user";
+            remove_user.Size = new Size(191, 46);
+            remove_user.TabIndex = 6;
+            remove_user.Text = "Remove User";
+            remove_user.UseVisualStyleBackColor = true;
+            remove_user.Click += remove_user_Click_1;
+            // 
             // sign_in_form
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1174, 348);
+            Controls.Add(remove_user);
             Controls.Add(newUserButton);
             Controls.Add(sign_in);
             Controls.Add(comboBox1);
@@ -95,7 +108,7 @@
             Controls.Add(textBox1);
             Name = "sign_in_form";
             SizeGripStyle = SizeGripStyle.Show;
-            Text = "Form1";
+            Text = "Sign-in Form";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -107,5 +120,6 @@
         private ComboBox comboBox1;
         private Button sign_in;
         private Button newUserButton;
+        private Button remove_user;
     }
 }

@@ -42,7 +42,7 @@ namespace Fitness_Tracker_App
         public void updateDropdown()
         {
             comboBox1.Items.Clear();
-            foreach(string str in this.userNames)
+            foreach (string str in this.userNames)
             {
                 comboBox1.Items.Add(str);
             }
@@ -85,6 +85,26 @@ namespace Fitness_Tracker_App
             {
                 this.sign_in.BackColor = Color.White;
             }
+        }
+
+        private void remove_user_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void remove_user_Click_1(object sender, EventArgs e)
+        {
+            if(this.comboBox1.Text != "")
+            {
+                //remove user
+                string path = "./users/" + this.comboBox1.Text;
+                Directory.Delete(path, true);
+                this.userNames.Remove(this.comboBox1.Text);
+                this.updateDropdown();
+                this.comboBox1.Text = "";
+                this.sign_in.BackColor = Color.LightGray;
+            }
+
         }
     }
 }

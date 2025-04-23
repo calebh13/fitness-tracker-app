@@ -59,7 +59,7 @@
             Controls.Add(textBox1);
             Controls.Add(create_user);
             Name = "newUserForm";
-            Text = "newUserForm";
+            Text = "New User Form";
             ResumeLayout(false);
             PerformLayout();
         }
